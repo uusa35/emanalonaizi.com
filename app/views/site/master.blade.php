@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ Lang::get('general.blogTitle') }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @include('site.layouts.styles')
+
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+                {{ HTML::image('http://placehold.it/150x150','Eman',array('class'=> 'img-responsive')) }}
+            </div>
+            <div class="col-md-8 col-sm-8">
+                <div class="row hidden-xs" style="height: 70px"></div>
+
+                <div class="col-md-6 col-sm-6">
+                    {{ HTML::image('images/name-arabic.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    {{ HTML::image('images/name-Eng.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+                </div>
+
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <a href="#">{{ HTML::image('images/logo.png','Eman',array('class'=>'img-responsive')) }}</a>
+            </div>
+        </div>
+
+        <!-- navigation bar -->
+        <div class="row">
+            @include('site.partials.navigation')
+            <div class="row hidden-xs divid"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <!--place for notification-->
+            </div>
+        </div>
+        <!-- end of header -->
+
+
+        <!-- content -->
+        <div class="row">
+            @yield('main')
+        </div>
+        <!-- end of content -->
+
+        <!-- footer -->
+        <div class="row">
+            @include('site.partials.footer')
+        </div>
+        <!-- end of footer-->
+
+    </div>
+    <!--end of container-->
+
+    <!-- Javascript -->
+    @section('script')
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+
+    @show
+
+</body>
+</html>
