@@ -13,5 +13,6 @@
 
 Route::get('/', function()
 {
+    echo App::environment();
 	return View::make('site.home');
 });

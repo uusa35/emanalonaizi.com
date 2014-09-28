@@ -23,15 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="instagram.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/site/partials/instagram.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="12" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="start.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="902" selection-end="902" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1207">
+            <state line="31" column="3" selection-start="979" selection-end="979" vertical-scroll-proportion="0.5381295" vertical-offset="0" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -59,10 +50,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/development/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="10" selection-start="967" selection-end="967" vertical-scroll-proportion="0.5381295" vertical-offset="153" max-vertical-offset="901">
+            <state line="39" column="33" selection-start="1140" selection-end="1140" vertical-scroll-proportion="-19.615385" vertical-offset="153" max-vertical-offset="901">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -127,7 +127,6 @@
         <option value="$PROJECT_DIR$/app/lang/ar/nav.php" />
         <option value="$PROJECT_DIR$/app/views/site/layouts/_two_column.blade.php" />
         <option value="$PROJECT_DIR$/app/views/site/layouts/two_columns.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/site/layouts/two_cols.blade.php" />
         <option value="$PROJECT_DIR$/app/views/site/partials/navigation.blade.php" />
         <option value="$PROJECT_DIR$/app/lang/en/nav.php" />
@@ -146,8 +145,9 @@
         <option value="$PROJECT_DIR$/app/views/site/layouts/_one_col.blade.php" />
         <option value="$PROJECT_DIR$/app/views/site/partials/instagram.blade.php" />
         <option value="$PROJECT_DIR$/app/views/site/partials/latestnews.blade.php" />
-        <option value="$PROJECT_DIR$/bootstrap/start.php" />
         <option value="$PROJECT_DIR$/app/config/development/database.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/bootstrap/start.php" />
       </list>
     </option>
   </component>
@@ -504,7 +504,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="28" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391" />
+        <state line="15" column="28" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="391">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/site/layouts/_two_cols.blade.php">
@@ -564,11 +566,6 @@
         <state line="50" column="14" selection-start="104" selection-end="1943" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1326">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="430" selection-end="455" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="238" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/site/partials/navigation.blade.php">
@@ -681,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/start/local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="721">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/start/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="19.615385" vertical-offset="510" max-vertical-offset="1326">
@@ -709,9 +699,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="902" selection-end="902" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1207">
+        <state line="18" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
@@ -725,7 +715,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/development/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="10" selection-start="967" selection-end="967" vertical-scroll-proportion="0.5381295" vertical-offset="153" max-vertical-offset="901">
+        <state line="39" column="33" selection-start="1140" selection-end="1140" vertical-scroll-proportion="-19.615385" vertical-offset="153" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/start/local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="721">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="3" selection-start="979" selection-end="979" vertical-scroll-proportion="0.5381295" vertical-offset="0" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
