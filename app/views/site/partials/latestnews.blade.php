@@ -1,4 +1,11 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {{ HTML::image('images/under.jpg','under construction', array('class'=>'img-responsive'))}}
+    </div>
+    <div class="col-md-3"></div>
 
+</div>
 <div class="col-md-1"></div>
 <div class="col-md-10 divid" style="">
         <!-- ./ post title -->
