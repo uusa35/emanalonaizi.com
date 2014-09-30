@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-3 hidden-sm"></div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
         {{ HTML::image('images/under.jpg','under construction', array('class'=>'img-responsive'))}}
     </div>
     <div class="col-md-3"></div>
@@ -19,7 +19,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-sm-1 col-xs-4">
                     <a href="#">{{ HTML::image('images/flower.png','image',array('class'=> 'img-responsive'))}}</a>
                 </div>
 
@@ -42,4 +42,4 @@
         </div>
     </div>
 </div>
-<div class="col-md-1"></div>
+<div class="col-md-1 hidden-sm"></div>

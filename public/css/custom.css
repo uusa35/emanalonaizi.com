@@ -88,3 +88,11 @@ a:hover{
     background-repeat: no-repeat;
     height:auto;
 }
+
+@media (max-width : 995px) {
+    #home-categories {
+
+        background-size: 300% !important;
+        height:auto;
+    }
+}
