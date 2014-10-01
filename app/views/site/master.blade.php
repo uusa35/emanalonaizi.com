@@ -15,7 +15,7 @@
             <div class="col-md-2 col-sm-2 hidden-xs">
                 {{ HTML::image('http://placehold.it/150x150','Eman',array('class'=> 'img-responsive')) }}
             </div>
-            <div class="col-md-8 col-sm-8">
+            <div class="col-md-8 col-sm-5">
                 <div class="row hidden-xs" style="height: 70px"></div>
 
                 <div class="col-md-6 col-sm-6">
@@ -27,7 +27,7 @@
                 </div>
 
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-2 col-xs-5 pull-left">
                 <a href="#">{{ HTML::image('images/logo.png','Eman',array('class'=>'img-responsive')) }}</a>
             </div>
         </div>
