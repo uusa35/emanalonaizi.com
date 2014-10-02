@@ -1,5 +1,5 @@
 <!--footer start-->
-<div id="footer">
+<div id="footer" >
     <div class="col-md-4 col-xs-12 ">
         <div class="col-md-1 col-xs-4 social-icons"><a href="https://twitter.com/uusa35"><i class="fa fa-twitter fa-lg"></i></a> </div>
         <div class="col-md-1 col-xs-4 social-icons"><a href="http://www.youtube.com/user/uusa35"><i class="fa fa-youtube fa-lg"></i></a></div>

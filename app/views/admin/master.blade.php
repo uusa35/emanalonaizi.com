@@ -22,21 +22,9 @@
 <!-- Container -->
 <div class="container">
 
-    @include('admin.partials.navigation')
+    @include('admin.partials.nav')
     <!-- ./ navbar -->
 
-    <!-- Notifications -->
-    @include('admin.partials.notification')
-    <!-- ./ notifications -->
-
-    <!-- Content -->
-    @section('content')
-    @show
-    <!-- ./ content -->
-
-    <!-- Footer -->
-    @include('admin.layouts.footer')
-    <!-- ./ Footer -->
 
 </div>
 <!-- ./ container -->

@@ -15,9 +15,21 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+    public $category;
+    public function __construct(Category $category) {
+        $this->category = $category;
+    }
+
+	public function index()
 	{
-		return View::make('hello');
+		// 1- to fetch last post added to the db
+        $post = Post::orderBy('created_at','DESC')->first();
+
+		// 2- to fetch all categories from the db
+        $categories = $this->category->all();
+
+        return View::make('site.home', compact('post','categories'));
+
 	}
 
 }

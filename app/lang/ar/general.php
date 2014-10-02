@@ -8,7 +8,7 @@
 
 return array(
 
-    'blogTitle' => 'إيمان العنزي - Eman Al Onaizi',
+    'blogTitle' => 'Eman Al-Onaizi - إيمان العنيزي',
     'instagram' => 'إنستجرام'
 
 

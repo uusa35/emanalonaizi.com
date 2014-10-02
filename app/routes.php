@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-    echo App::environment();
-	return View::make('site.home');
+
+Route::get('/', 'HomeController@index');
+Route::get('category/{categoryId}', 'CategoryController@index');
+Route::resource('post','PostController',['only'=>'show']);
+
+
+Route::group(['before'=>'guest'], function () {
+
 });

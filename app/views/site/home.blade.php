@@ -1,5 +1,9 @@
-<!-- Extends From Two Column Layou -->
+<!-- Extends From from layouts ONE COL MASTER-->
 @extends('site.layouts._one_col')
 @section('main')
-    @parent
+    <div class="row">
+        @include('site.partials.instagram')
+        @include('site.partials.latestnews')
+        @include('site.partials.homeCategories')
+    </div>
 @stop
