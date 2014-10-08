@@ -12,23 +12,30 @@
     <div class="container">
         <!-- header -->
         <div class="row">
-            <div class="col-md-2 col-sm-2 hidden-xs">
-                {{ HTML::image('http://placehold.it/150x150','Eman',array('class'=> 'img-responsive')) }}
-            </div>
-            <div class="col-md-8 col-sm-5">
-                <div class="row hidden-xs" style="height: 70px"></div>
 
-                <div class="col-md-6 col-sm-6">
-                    {{ HTML::image('images/name-arabic.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
-
+            <div class="row">
+                <div class="col-md-2 col-sm-2 hidden-xs">
+                    {{ HTML::image('http://placehold.it/150x180','Eman',array('class'=> 'img-responsive')) }}
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    {{ HTML::image('images/name-Eng.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
-                </div>
+                <div class="col-md-8 col-sm-5">
+                    <div class="row">
+                        @include('site.partials.login')
+                    </div>
+                    <div class="row">
 
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-5 pull-left">
-                <a href="#">{{ HTML::image('images/logo.png','Eman',array('class'=>'img-responsive')) }}</a>
+
+                        <div class="col-md-6 col-sm-6">
+                            {{ HTML::image('images/name-arabic.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            {{ HTML::image('images/name-Eng.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-5 pull-left">
+                    <a href="#">{{ HTML::image('images/logo.png','Eman',array('class'=>'img-responsive')) }}</a>
+                </div>
             </div>
         </div>
 

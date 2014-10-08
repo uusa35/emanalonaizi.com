@@ -20,4 +20,11 @@ Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
 
 Route::group(['before'=>'guest'], function () {
 
+
+    Route::group(['before'=>'csrf'], function () {
+
+        // check data in login user
+        Route::post('account/login',['as'=>'account-login','uses'=>'AccountController@checkAccount']);
+
+    });
 });
