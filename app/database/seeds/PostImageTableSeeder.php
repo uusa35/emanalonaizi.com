@@ -7,7 +7,7 @@ class PostImageTableSeeder extends Seeder {
 
 	public function run()
 	{
-       // DB::table('post_images')->truncate();
+       //DB::table('post_images')->truncate();
 		$faker = Faker::create();
 
 		foreach(range(1, 10) as $index)
