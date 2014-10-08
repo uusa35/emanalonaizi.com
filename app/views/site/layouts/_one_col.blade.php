@@ -1,5 +1,6 @@
 @extends('site.master')
-    @section('main')
 
-      @yeild('content')
-    @stop
+@section('main')
+
+    @yield('content')
+@stop

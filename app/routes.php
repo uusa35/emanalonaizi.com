@@ -15,6 +15,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('category/{categoryId}', 'CategoryController@index');
 Route::resource('post','PostController',['only'=>'show']);
+Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
 
 
 Route::group(['before'=>'guest'], function () {

@@ -1,28 +1,23 @@
 <?php
 
-class CategoryController extends \BaseController {
+class AboutUsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /category
+	 * GET /aboutus
 	 *
 	 * @return Response
 	 */
-	public function index($categoryId)
+	public function index()
 	{
 		//
-        $category = Category::find($categoryId);
-
-        $posts = $category->posts()->paginate(8);
-
-
-        return View::make('site.category.index',compact('posts'));
-
+        $aboutus = Aboutus::find(1);
+        return View::make('site.layouts.aboutus',compact('aboutus'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /category/create
+	 * GET /aboutus/create
 	 *
 	 * @return Response
 	 */
@@ -33,7 +28,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /category
+	 * POST /aboutus
 	 *
 	 * @return Response
 	 */
@@ -44,7 +39,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /category/{id}
+	 * GET /aboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -56,7 +51,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /category/{id}/edit
+	 * GET /aboutus/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,7 +63,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /category/{id}
+	 * PUT /aboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,7 +75,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /category/{id}
+	 * DELETE /aboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

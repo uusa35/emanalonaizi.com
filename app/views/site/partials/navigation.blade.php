@@ -17,8 +17,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ (Request::is('en') || Request::is('ar') || Request::is('/')) ? 'active' : '' }}" ><a href="#">{{ Lang::get('nav.home')}}  </a></li>
-                <li class="{{ (Request::is('en') || Request::is('ar') || Request::is('/')) ? 'active' : '' }}" ><a href="#">{{ Lang::get('nav.aboutus')}}  </a></li>
+                <li class="{{ Request::is('/') ? 'active' : '' }}" ><a href="/">{{ Lang::get('nav.home')}}  </a></li>
+                <li class="{{ Request::is('/') ? 'active' : '' }}" ><a href="{{ route('aboutus') }}">{{ Lang::get('nav.aboutus')}}  </a></li>
                 <li class="dropdown {{ (Request::segment('1') == 'event' ? 'active' :  false ) }}">
                     <a id="eventsTab" class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-bottom:80px;">{{ Lang::get('nav.field') }}  </a>
                     <ul class="dropdown-menu" role="menu">

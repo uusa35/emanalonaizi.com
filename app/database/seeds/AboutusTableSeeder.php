@@ -10,7 +10,7 @@ class AboutusTableSeeder extends Seeder {
         DB::table('aboutus')->truncate();
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 2) as $index)
 		{
 			Aboutus::create([
                 'title' => $faker->sentence(3),

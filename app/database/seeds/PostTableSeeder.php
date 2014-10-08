@@ -7,7 +7,7 @@ class PostTableSeeder extends Seeder {
 
 	public function run()
 	{
-        DB::table('posts')->truncate();
+       // DB::table('posts')->truncate();
 		$faker = Faker::create();
 
 		foreach(range(1, 10) as $index)
