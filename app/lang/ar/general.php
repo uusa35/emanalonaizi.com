@@ -10,8 +10,5 @@ return array(
 
     'blogTitle' => 'Eman Al-Onaizi - إيمان العنيزي',
     'instagram' => 'إنستجرام',
-    'read_more' => 'للمزيد ..',
-    'enter' => 'دخول',
-    'username' => 'اسم المستخدم' ,
-    'password' => 'كلمة المرور'
+
 );

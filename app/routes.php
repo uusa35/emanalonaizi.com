@@ -18,6 +18,10 @@ Route::resource('post','PostController',['only'=>'show']);
 Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
 
 
+
+/*
+ * before a user is logged
+ * */
 Route::group(['before'=>'guest'], function () {
 
 
@@ -27,4 +31,28 @@ Route::group(['before'=>'guest'], function () {
         Route::post('account/login',['as'=>'account-login','uses'=>'AccountController@checkAccount']);
 
     });
+});
+
+
+/*
+ *
+ * USERS ZONE
+ * */
+Route::group(['after'=> 'auth'], function () {
+
+        Route::get('account/logout', ['as'=>'account-logout', 'uses'=>'AccountController@logOut']);
+
+});
+
+
+/*
+ *  ADMIN ZONE
+ * */
+Route::group(['before'=>'admin','prefix'=>'admin'], function () {
+
+        Route::get('account/dashboard',['uses'=> 'AccountController@getDashBoard']);
+
+
+        Route::resource('post', 'PostController');
+
 });

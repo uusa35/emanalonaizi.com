@@ -88,3 +88,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+ * Admin Filter
+ * */
+
+Route::filter('admin', function()
+{
+    if (! Auth::user()->username === 'admin')
+    {
+        App::abort(403, 'Unauthorized action.');
+    }
+});

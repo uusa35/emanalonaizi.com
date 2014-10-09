@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
@@ -15,12 +15,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
-
+    public static $rules = [
+        'username'=> 'required|unique',
+        'password' => 'required|min:4'
+    ];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	protected $hidden = array('password');
 
 }

@@ -13,7 +13,7 @@ class CategoryController extends \BaseController {
 		//
         $category = Category::find($categoryId);
 
-        $posts = $category->posts()->paginate(8);
+        $posts = $category->posts()->paginate(5);
 
 
         return View::make('site.category.index',compact('posts'));

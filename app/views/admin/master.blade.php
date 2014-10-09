@@ -2,66 +2,80 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ ! empty($title) ? $title . ' - ' : '' }} Kaizen Admin</title>
+    <title>{{ Lang::get('general.blogTitle') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    @section('style')
-
-        {{ HTML::style('assets/css/bootstrap.min.css') }}
-        {{ HTML::style('css/font-awesome.min.css') }}
-        {{ HTML::style('assets/css/wysihtml5/prettify.css') }}
-        {{ HTML::style('assets/css/wysihtml5/bootstrap-wysihtml5.css') }}
-        {{ HTML::style('assets/css/datatables.css') }}
-        {{ HTML::style('assets/css/custom.css') }}
-    @show
+    @include('site.layouts.styles')
 
 </head>
-
 <body>
-<!-- Container -->
 <div class="container">
+    <!-- header -->
+    <div class="row">
 
-    @include('admin.partials.nav')
-    <!-- ./ navbar -->
+        <div class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+                {{ HTML::image('http://placehold.it/150x180','Eman',array('class'=> 'img-responsive')) }}
+            </div>
+            <div class="col-md-8 col-sm-8">
+                <div class="row">
+                    @include('site.partials.login')
+                </div>
+                <div class="row">
+
+
+                    <div class="col-md-6 col-sm-6">
+                        {{ HTML::image('images/name-arabic.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        {{ HTML::image('images/name-Eng.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-5 pull-left">
+                <a href="#">{{ HTML::image('images/logo.png','Eman',array('class'=>'img-responsive')) }}</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- navigation bar -->
+    <div class="row">
+        <div class="col-md-12">
+            @include('admin.partials.nav')
+        </div>
+
+        <div class="row hidden-xs divid"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--place for notification-->
+        </div>
+    </div>
+    <!-- end of header -->
+
+
+    <!-- content -->
+    <div class="row">
+
+    </div>
+    <!-- end of content -->
+
 
 
 </div>
-<!-- ./ container -->
+<!--end of container-->
 
-    <!-- Javascript -->
-    @section('script')
+<!-- Javascript -->
+@section('script')
 
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
 
-    {{ HTML::script('assets/js/jquery.min.js') }}
-    {{ HTML::script('assets/js/bootstrap.min.js') }}
-    {{ HTML::script('assets/js/wysihtml5/wysihtml5-0.3.0.js') }}
-    {{ HTML::script('assets/js/wysihtml5/bootstrap-wysihtml5.js') }}
-    {{ HTML::script('assets/js/datatables-bootstrap.js') }}
-    {{ HTML::script('assets/js/datatables.js') }}
-
-    <script type="text/javascript">
-        $('.wysihtml5').wysihtml5();
-
-        $(document).ready(function() {
-            $('.datatable').dataTable({
-                "sPaginationType": "bs_four_button"
-            });
-            $('.datatable').each(function(){
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.addClass('form-control');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.addClass('form-control input-sm');
-            });
-        });
-    </script>
-
-    @show
+@show
 
 </body>
-
 </html>

@@ -17,7 +17,7 @@
                 <div class="col-md-2 col-sm-2 hidden-xs">
                     {{ HTML::image('http://placehold.it/150x180','Eman',array('class'=> 'img-responsive')) }}
                 </div>
-                <div class="col-md-8 col-sm-5">
+                <div class="col-md-8 col-sm-8">
                     <div class="row">
                         @include('site.partials.login')
                     </div>
@@ -41,7 +41,10 @@
 
         <!-- navigation bar -->
         <div class="row">
-            @include('site.partials.navigation')
+            <div class="col-md-12">
+                @include('site.partials.navigation')
+            </div>
+
             <div class="row hidden-xs divid"></div>
         </div>
 
