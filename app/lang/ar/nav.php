@@ -13,6 +13,8 @@ return array(
 
     'field' => 'الحقل',
 
-    'contactus'=> 'اتصل بنا'
+    'contactus'=> 'اتصل بنا',
+
+    'users' => 'المستخدمين'
 
 );

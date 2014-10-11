@@ -16,5 +16,7 @@ return array(
     'profile'           => 'الملف الشخصي',
     'admin_dashboard'   => 'إدارة محتوى الموقع',
     'user_area'         => 'العودة للموقع',
+    'new_user'          => 'مستخدم جديد',
+    'create_user'       => 'إنشاء مستخدم جديد'
 
 );

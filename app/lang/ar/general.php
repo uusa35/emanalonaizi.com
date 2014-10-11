@@ -9,6 +9,10 @@
 return array(
 
     'blogTitle' => 'Eman Al-Onaizi - إيمان العنيزي',
+    'blogTitlear' => 'إيمان العنيزي',
     'instagram' => 'إنستجرام',
+    'first_name'    => 'الاسم الاول',
+    'last_name'     => 'اسم العائلة',
+    ''
 
 );

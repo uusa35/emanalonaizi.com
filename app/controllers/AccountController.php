@@ -3,8 +3,34 @@
 class AccountController extends \BaseController {
 
 
+
+    public function getSignUp() {
+        return View::make('forms.signup');
+    }
+
+    public function postSignUp () {
+        return 'this is from inside post sign up';
+    }
+
+    public function getForgotPassword() {
+        return View::make('forms.forgot');
+    }
+
+    public function postForgotPassword() {
+        return 'post forget passw';
+    }
+
+    public function getResetPassword() {
+        return 'get reset pass';
+    }
+
+    public function postResetPassword() {
+        return 'post reset password';
+    }
+
+
     // login form checkin function
-	public function checkAccount() {
+	public function postSignIn() {
         $credentials = ['username'=> Input::get('username'), 'password'=> Input::get('password')];
         $rememberMe = Input::get('remember_me') ? 'true' : 'false';
          $user = Auth::attempt($credentials, $rememberMe);
@@ -12,14 +38,10 @@ class AccountController extends \BaseController {
     }
 
 
-    public function getDashBoard () {
-
-       return View::make('admin.layouts.home');
-    }
 
     // logout btn
     public function logOut() {
         Auth::logout();
-        return Redirect::back();
+        return Redirect::home();
     }
 }
