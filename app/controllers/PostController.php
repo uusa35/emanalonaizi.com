@@ -2,6 +2,7 @@
 
 class PostController extends \BaseController {
 
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /post
@@ -11,7 +12,6 @@ class PostController extends \BaseController {
 	public function index($categoryId)
 	{
 		//
-
 
 
 	}
@@ -48,7 +48,8 @@ class PostController extends \BaseController {
 	public function show($id)
 	{
 		//
-        return 'this is show'.$id;
+		// this will depend on comments and photos :: relation ship to be made
+        return View::make('site.posts.show',['id'=> $id]);
 	}
 
 	/**

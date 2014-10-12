@@ -1,22 +1,22 @@
 <?php
 
-class AdminCommentController extends \BaseController {
+class AdminAboutUsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /admincomment
+	 * GET /adminaboutus
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
 		//
-        return View::make('admin.comments.index');
+        return View::make('admin.aboutus.index');
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /admincomment/create
+	 * GET /adminaboutus/create
 	 *
 	 * @return Response
 	 */
@@ -27,7 +27,7 @@ class AdminCommentController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /admincomment
+	 * POST /adminaboutus
 	 *
 	 * @return Response
 	 */
@@ -38,7 +38,7 @@ class AdminCommentController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /admincomment/{id}
+	 * GET /adminaboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -50,7 +50,7 @@ class AdminCommentController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /admincomment/{id}/edit
+	 * GET /adminaboutus/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -62,7 +62,7 @@ class AdminCommentController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /admincomment/{id}
+	 * PUT /adminaboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -74,7 +74,7 @@ class AdminCommentController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /admincomment/{id}
+	 * DELETE /adminaboutus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

@@ -5,7 +5,7 @@ class AccountController extends \BaseController {
 
 
     public function getSignUp() {
-        return View::make('forms.signup');
+        return View::make('site.auth.signup');
     }
 
     public function postSignUp () {
@@ -13,7 +13,7 @@ class AccountController extends \BaseController {
     }
 
     public function getForgotPassword() {
-        return View::make('forms.forgot');
+        return View::make('site.auth.forgot');
     }
 
     public function postForgotPassword() {

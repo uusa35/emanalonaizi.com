@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="row">
-                    @include('site.partials.login')
+                    @include('site.auth.signin')
                 </div>
                 <div class="row">
 

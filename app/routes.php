@@ -58,11 +58,16 @@ Route::group(['after'=> 'auth'], function () {
  * */
 Route::group(['before'=>'admin','prefix'=>'admin'], function () {
 
+        // index for the dashboard area -- go directly to post index
         Route::get('account/',['as'=>'account','uses'=> 'AdminPostController@index']);
         Route::resource('post', 'PostController',['only'=>['index','create','update']]);
         Route::get('account/users',['as'=>'account-users','uses'=>'AdminAccountController@index']);
+        Route::get('account/comments',['as'=>'account-comments','uses'=>'AdminCommentController@index']);
+        Route::get('account/contactus',['as'=>'account-contactus','uses'=>'AdminContactUsController@index']);
+        Route::get('account/aboutus',['as'=>'account-aboutus','uses'=>'AdminAboutUsController@index']);
         Route::group(['before'=>'csrf'], function () {
-            Route::resource('post','Postcontroller',['except'=>['index','create','update']]);
+            // store + edit + delete
+            Route::resource('post','PosController',['except'=>['index','create','update']]);
         });
 
 

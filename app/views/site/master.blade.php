@@ -5,8 +5,7 @@
     <title>{{ Lang::get('general.blogTitle') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('site.layouts.styles')
-    {{ HTML::style('css/custom-nav.css') }}
+    @yield('style')
 
 </head>
 <body>
@@ -20,7 +19,7 @@
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <div class="row">
-                        @include('forms.login')
+                        @include('site.auth.signin')
                     </div>
                     <div class="row">
 
@@ -74,13 +73,8 @@
     <!--end of container-->
 
     <!-- Javascript -->
-    @section('script')
 
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
-
-    @show
+    @yield('javascript')
 
 </body>
 </html>
