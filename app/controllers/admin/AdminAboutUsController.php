@@ -2,7 +2,12 @@
 
 class AdminAboutUsController extends \BaseController {
 
-	/**
+
+    public $contactus;
+    public function __construct(ContactUs $contactus) {
+        $this->contactus = $contactus;
+    }
+    /**
 	 * Display a listing of the resource.
 	 * GET /adminaboutus
 	 *

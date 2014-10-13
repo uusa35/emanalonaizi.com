@@ -83,4 +83,8 @@ class Commentcontroller extends \BaseController {
 		//
 	}
 
+    public function posts() {
+        return $this->belongsTo('Comment');
+    }
+
 }

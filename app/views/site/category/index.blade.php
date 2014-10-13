@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
 @foreach ($posts as $post)
+
 <div class="col-md-12" >
 
     <!-- Post Title -->
@@ -14,13 +15,13 @@
     <!-- Post Content -->
 
         <div class="col-md-3">
-            @if(count($post->photos))
-                {{ HTML::image('uploads/medium/'.$post->photos[0]->name.'','image1',array('class'=>'img-responsive img-thumbnail')) }}
+            @if(isset($post->photos[0]))
+              <!--  {{ HTML::image('uploads/medium/'.$post->photos[0]->name.'','image1',array('class'=>'img-responsive img-thumbnail')) }}-->
+            <img src="{{ $post->photos[0]->path }} " class="img-responsive img-thumbnail" alt="{{ $post->title }}"/>
+              <!--{{ HTML::image(''.$post->photos[0]->path.'',$post->title,array('class'=>'img-responsive img-thumbnail')) }}-->
             @else
             <a href="{{action('PostController@show',$post->id) }}">
-
-                    <img src="http://placehold.it/100x100/2980b9/ffffff&text}}" class="img-responsive img-thumbnail" />
-
+                <img src="http://placehold.it/100x100/2980b9/ffffff&text}}" class="img-responsive img-thumbnail" />
             </a>
             @endif
         </div>

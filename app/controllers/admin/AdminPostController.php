@@ -2,6 +2,11 @@
 
 class AdminPostController extends \BaseController {
 
+    public $post;
+    public function __construct(Post $post) {
+        $this->post = $post;
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /adminpost

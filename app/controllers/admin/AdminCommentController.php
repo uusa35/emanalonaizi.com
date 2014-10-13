@@ -2,6 +2,10 @@
 
 class AdminCommentController extends \BaseController {
 
+    public $comment;
+    public function __construct (Comment $comment) {
+        $this->comment = $comment;
+    }
 	/**
 	 * Display a listing of the resource.
 	 * GET /admincomment

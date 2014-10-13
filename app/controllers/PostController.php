@@ -49,7 +49,9 @@ class PostController extends \BaseController {
 	{
 		//
 		// this will depend on comments and photos :: relation ship to be made
-        return View::make('site.posts.show',['id'=> $id]);
+        $post = Post::find($id);
+        $comments = $post->comments();
+        return View::make('site.posts.show',['id'=> $id,'comments'=> $comments]);
 	}
 
 	/**
@@ -87,5 +89,8 @@ class PostController extends \BaseController {
 	{
 		//
 	}
+
+
+
 
 }

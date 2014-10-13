@@ -2,6 +2,12 @@
 
 class AdminAccountController extends \BaseController {
 
+
+
+    public $user;
+    public function __construct(User $user) {
+        $this->user = $user;
+    }
 	/**
 	 * Display a listing of the resource.
 	 * GET /adminaccount
