@@ -13,11 +13,9 @@ class CategoryController extends \BaseController {
 		//
         $category = Category::find($categoryId);
 
+
+        // eagger loading
         $posts = $category->posts()->with('photos')->paginate(2);
-        /*$posts = $category->posts()->paginate(5);*/
-/*        echo '<pre>';
-        dd($posts->toArray());
-        echo '</pre>';*/
 
         return View::make('site.category.index',compact('posts'));
 

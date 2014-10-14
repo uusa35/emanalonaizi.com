@@ -6,7 +6,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('style')
-
 </head>
 <body>
     <div class="container">
@@ -22,8 +21,6 @@
                         @include('site.auth.signin')
                     </div>
                     <div class="row">
-
-
                         <div class="col-md-6 col-sm-6">
                             {{ HTML::image('images/name-arabic.png',Lang::get('blogTitle'),array('class'=>'img-responsive'))}}
 

@@ -50,8 +50,10 @@ class PostController extends \BaseController {
 		//
 		// this will depend on comments and photos :: relation ship to be made
         $post = Post::find($id);
-        $comments = $post->comments();
-        return View::make('site.posts.show',['id'=> $id,'comments'=> $comments]);
+        $post = $post->load('photos', 'comments','comments.user');
+     /*   echo '<pre>';
+        dd($post->toArray());*/
+        return View::make('site.posts.show',['post'=> $post]);
 	}
 
 	/**

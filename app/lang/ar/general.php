@@ -13,6 +13,6 @@ return array(
     'instagram' => 'إنستجرام',
     'first_name'    => 'الاسم الاول',
     'last_name'     => 'اسم العائلة',
-    ''
+    'no_photos'     => 'لا يوجد صور',
 
 );

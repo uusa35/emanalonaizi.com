@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12 pull-left">
                 | <i class="glyphicon glyphicon-calendar"></i> <!--Sept 16th, 2012-->{{{ $post->created_at }}}
-                 <a class="btn-sm btn-mini btn-info pull-left" href="{{action('PostController@show',$post->id) }}">{{Lang::get('general.read_more')}}</a>
+                 <a class="btn-sm btn-mini btn-info pull-left" href="{{action('PostController@show',$post->id) }}">{{Lang::get('buttons.read_more')}}</a>
                 </div>
             </div>
         </div>
