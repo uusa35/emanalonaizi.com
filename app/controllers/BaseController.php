@@ -15,4 +15,14 @@ class BaseController extends Controller {
 		}
 	}
 
+    public function successMsg($msg = '') {
+
+        Session::flash('successMsg', $msg);
+    }
+
+    public function errorMsg($msg = '') {
+
+        Session::flash('successMsg', $msg);
+    }
+
 }

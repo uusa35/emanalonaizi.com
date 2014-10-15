@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="row">
-                @if(count($post->photos) > 0)
+                @if(count($post->photos) === 0)
                     <div class="col-md-8 text-center col-md-offset-2">
                         <div class="alert alert-danger" role="alert"><i class="fa fa-fw fa-ban on fa-camera"></i>{{ Lang::get('general.no_photos') }}</div>
                     </div>
@@ -83,41 +83,7 @@
             </div>
             <hr>
 
-            <!-- comments -->
-            <div class="well">
-
-                <div class="text-right">
-                    <a class="btn btn-success {{ (!Auth::check()) ? 'disabled' : '' }}">{{ Lang::get('buttons.comment') }}</a>
-                    <a href="{{ URL::route('account-signup') }}" class="btn btn-default {{ (Auth::check()) ? 'hidden' : '' }}">{{ Lang::get('buttons.new_user') }}</a>
-                </div>
-
-                <hr>
-
-                @for($i=0;$i < count($post->comments);$i++)
-                <div class="row">
-                    <div class="col-md-4 pull-left">
-                        {{ $post->comments[$i]->user['username']}}
-                        <i class="fa fa-clock-o"></i>
-
-
-
-                        {{ $post->comments[$i]->created_at}}
-                        <i class="fa fa-comments"></i>
-
-                    </div>
-                    <div class="col-md-8 pull-right">
-                        <p>{{ $post->comments[$i]->title}}</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <p>{{ $post->comments[$i]->body }}</p>
-                        </div>
-
-                    </div>
-                </div>
-                <hr>
-                @endfor
-            </div>
+           @include('site.comments.show')
 
         </div>
     </div>

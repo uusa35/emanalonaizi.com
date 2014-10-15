@@ -48,7 +48,9 @@
 
         <div class="row">
             <div class="col-md-12">
-                @yield('notificatons')
+                @if(Session::has('messages'))
+                    @include('site.partials.notification')
+                @endif
             </div>
         </div>
         <!-- end of header -->

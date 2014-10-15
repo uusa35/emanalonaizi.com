@@ -14,5 +14,8 @@ return array(
     'first_name'    => 'الاسم الاول',
     'last_name'     => 'اسم العائلة',
     'no_photos'     => 'لا يوجد صور',
+    'add_comment'   => 'إضافة تعليق',
+    'comments'      => 'التعليقات',
+    'cannot_comment'=> 'لا تستطيع التعليق .. يجب عليك التسجيل أولاً',
 
 );

@@ -49,6 +49,9 @@ Route::group(['before'=>'guest'], function () {
 Route::group(['after'=> 'auth'], function () {
 
         Route::get('account/logout', ['as'=>'account-logout', 'uses'=>'AccountController@logOut']);
+        Route::group(['before'=>'csrf'], function () {
+            Route::post('comment/post', ['as'=>'comment-post', 'uses'=>'CommentController@postComment']);
+        });
 
 });
 

@@ -150,6 +150,7 @@ return array(
         "minute" => "دقيقة",
         "second" => "ثانية",
         "title" => "العنوان",
+        'body'  => 'المحتوى',
         "content" => "المحتوى",
         "description" => "الوصف",
         "excerpt" => "الملخص",

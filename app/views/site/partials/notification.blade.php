@@ -1,71 +1,28 @@
-@if ( Session::get('errors') )
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <div class="alert alert-danger alert-block"><h2>{{ Lang::get('messages.error') }}</h2>
 
-        @if(!is_array($errors))
-            @foreach($errors->all('<li>:message</li>') as $message)
-                {{ $message }}
-            @endforeach
+<div class="row">
+    <div class="col-md-2 hidden-sm"></div>
+    <div class="col-md-8 col-sm-12 col-xs-12">
+        @if(Session::get('messages') === 'error')
+            @if($errors->any())
+            <div class="alert alert-danger alert-block">
+                <h4><i class="fa fa-fw fa-close"></i> {{ Lang::get('messages.error_msg') }}</h4>
+                <ul>
+                    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+                </ul>
+            </div>
+            @endif
+        @elseif(Session::get('messages') === 'success')
+
+            @if(Session::has('successMsg'))
+            <div class="alert alert-info alert-block">
+                <h4><i class="fa fa-fw fa-check-square"></i> {{ Session::get('successMsg') }}</h4>
+            </div>
+            @endif
+
         @else
-            @foreach ($errors as $message)
-                <li>{{ $message }}</li>
-            @endforeach
         @endif
     </div>
-@endif
+    <div class="col-md-2"></div>
 
-@if ($message = Session::get('error'))
-    <div class="alert alert-danger alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ Lang::get('messages.error') }}</h4>
-        @if(is_array($message))
-            @foreach ($message as $m)
-            <li>{{ $m }}</li>
-            @endforeach
-        @else
-            {{ $message }}
-        @endif
-    </div>
-@endif
 
-@if ($message = Session::get('warning'))
-    <div class="alert alert-warning alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ Lang::get('messages.warning') }}</h4>
-        @if(is_array($message))
-            @foreach ($message as $m)
-                <li>{{ $m }}</li>
-            @endforeach
-        @else
-            {{ $message }}
-        @endif
-    </div>
-@endif
-
-@if ($message = Session::get('info'))
-    <div class="alert alert-info alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ Lang::get('messages.info') }}</h4>
-        @if(is_array($message))
-            @foreach ($message as $m)
-                <li>{{ $m }}</li>
-            @endforeach
-        @else
-            {{ $message }}
-        @endif
-    </div>
-@endif
-
-@if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ Lang::get('messages.success') }}</h4>
-        @if(is_array($message))
-            @foreach ($message as $m)
-                <li>{{ $m }}</li>
-            @endforeach
-        @else
-            {{ $message }}
-        @endif
-    </div>
-@endif
+</div>
