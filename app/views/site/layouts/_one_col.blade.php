@@ -5,6 +5,10 @@
     {{ HTML::style('css/custom-nav.css') }}
 @stop
 
+@section('navigation')
+    @include('site.partials.navigation')
+@stop
+
 @section('main')
     @yield('content')
 @stop

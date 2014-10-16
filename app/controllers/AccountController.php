@@ -21,7 +21,7 @@ class AccountController extends \BaseController {
     }
 
     public function getResetPassword() {
-        return 'get reset pass';
+        return View::make('site.auth.reset');
     }
 
     public function postResetPassword() {

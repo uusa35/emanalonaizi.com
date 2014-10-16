@@ -26,9 +26,14 @@ class HomeController extends BaseController {
         $post = Post::orderBy('created_at','DESC')->first();
 
 		// 2- to fetch all categories from the db
-        $categories = $this->category->all();
+        /*$categories = $this->category->all();*/
 
-        return View::make('site.home', compact('post','categories'));
+
+
+
+
+
+        return View::make('site.home', compact('post'));
 
 	}
 

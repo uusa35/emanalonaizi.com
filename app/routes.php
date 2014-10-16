@@ -16,6 +16,8 @@ Route::get('/', ['as'=>'home', 'uses'=>'HomeController@index']);
 Route::get('category/{categoryId}', 'CategoryController@index');
 Route::resource('post','PostController',['only'=>'show']);
 Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
+Route::get('/contactus', ['as'=>'contactus', 'uses'=>'ContactUsController@index']);
+Route::get('/contactus/email', ['as'=>'contactus-email', 'uses'=>'ContactUsController@contact']);
 
 
 
@@ -28,6 +30,7 @@ Route::group(['before'=>'guest'], function () {
     Route::get('account/signin',['as'=>'account-signin','uses'=>'AccountController@getSignIn']);
     Route::get('account/forgotpassword',['as'=>'account-forgot','uses'=>'AccountController@getForgotPassword']);
     Route::get('account/reset',['as'=>'account-reset','uses'=>'AccountController@getResetPassword']);
+
 
     Route::group(['before'=>'csrf'], function () {
 
@@ -49,8 +52,11 @@ Route::group(['before'=>'guest'], function () {
 Route::group(['after'=> 'auth'], function () {
 
         Route::get('account/logout', ['as'=>'account-logout', 'uses'=>'AccountController@logOut']);
+        Route::get('account/reset', ['as'=>'account-logout', 'uses'=>'AccountController@getResetPassword']);
+
         Route::group(['before'=>'csrf'], function () {
-            Route::post('comment/post', ['as'=>'comment-post', 'uses'=>'CommentController@postComment']);
+            Route::post('comment/post/{post_id}/{user_id}', ['as'=>'comment-post', 'uses'=>'CommentController@postComment']);
+            Route::post('account/reset', ['as'=>'account-reset', 'uses'=>'AccountController@postResetPassword']);
         });
 
 });

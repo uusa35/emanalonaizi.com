@@ -30,16 +30,23 @@ class Commentcontroller extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function postComment()
+	public function postComment($post_id,$user_id)
 	{
 		//
         $validator = Validator::make([
-            'title'=>Input::get('title'),
-            'body'=>Input::get('body')
+            'title' =>Input::get('title'),
+            'body'  =>Input::get('body')
         ],Comment::$rules);
         if($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator)->with('messages','error');
         }
+        $comment = Comment::create([
+                    'title'     => Input::get('title'),
+                    'body'      => Input::get('body'),
+                    'post_id'   => $post_id,
+                    'user_id'   => $user_id
+                    ]);
+
         $this->successMsg(Lang::get('messages.comment_success'));
         return Redirect::back()->with('success',Lang::get('messages.comment_success'))->with('messages','success');
 	}

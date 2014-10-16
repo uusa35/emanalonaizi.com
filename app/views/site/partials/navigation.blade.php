@@ -18,15 +18,17 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('/') ? 'active' : '' }}" ><a href="/">{{ Lang::get('nav.home')}}  </a></li>
-                <li class="{{ Request::is('/') ? 'active' : '' }}" ><a href="{{ route('aboutus') }}">{{ Lang::get('nav.aboutus')}}  </a></li>
-                <li class="dropdown {{ (Request::segment('1') == 'event' ? 'active' :  false ) }}">
-                    <a id="eventsTab" class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-bottom:80px;">{{ Lang::get('nav.field') }}  </a>
+                <li class="{{ Request::is('aboutus') ? 'active' : '' }}" ><a href="{{ route('aboutus') }}">{{ Lang::get('nav.aboutus')}}  </a></li>
+                <li class="dropdown {{ (Request::segment('1') == 'category' ? 'active' :  false ) }}">
+                    <a id="eventsTab" class="dropdown-toggle" data-toggle="dropdown" href="#" >{{ Lang::get('nav.field') }}  </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" >{{ Lang::get('nav.field') }}</a></li>
-                        <li><a href="#">{{ Lang::get('nav.contactus') }}</a></li>
+                        @foreach($categories as $category)
+                        <li><a href="{{ URL::to('category',$category->id) }}" >{{ $category->name }}</a></li>
+                        @endforeach
+
                     </ul>
                 </li>
-                <li class="{{ (Request::is('en') || Request::is('ar') || Request::is('/')) ? 'active' : '' }}" ><a href="#">{{ Lang::get('nav.contactus')}} </a></li>
+                <li class="{{ (Request::is('en') || Request::is('ar') || Request::is('contactus')) ? 'active' : '' }}" ><a href="{{ route('contactus') }}">{{ Lang::get('nav.contactus')}} </a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

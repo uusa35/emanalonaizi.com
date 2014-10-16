@@ -17,5 +17,6 @@ return array(
     'add_comment'   => 'إضافة تعليق',
     'comments'      => 'التعليقات',
     'cannot_comment'=> 'لا تستطيع التعليق .. يجب عليك التسجيل أولاً',
+    'contactus'     => 'اتصل بنا',
 
 );

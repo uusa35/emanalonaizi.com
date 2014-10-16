@@ -12,7 +12,7 @@ class AboutUsController extends \BaseController {
 	{
 		//
         $aboutus = Aboutus::find(1);
-        return View::make('site.layouts.aboutus',compact('aboutus'));
+        return View::make('site.aboutus.index',compact('aboutus'));
 	}
 
 	/**

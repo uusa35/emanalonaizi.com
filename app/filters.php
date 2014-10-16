@@ -14,12 +14,18 @@
 App::before(function($request)
 {
 	//
+    View::composer(['site.layouts._one_col','site.home'], function($view)
+    {
+        $categories = Category::all();
+        $view->with('categories' , $categories);
+    });
 });
 
 
 App::after(function($request, $response)
 {
 	//
+
 });
 
 /*

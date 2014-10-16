@@ -1,35 +1,39 @@
 <?php
 
-class PostController extends \BaseController {
-
+class ContactUsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /post
+	 * GET /contactus
 	 *
 	 * @return Response
 	 */
-	public function index($categoryId)
+	public function index()
 	{
 		//
-
-
+       $contact = Contactus::first();
+        /*echo '<pre>';
+        dd($contact->toArray());*/
+       return  View::make('site.contactus.index',compact('contact'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /post/create
+	 * GET /contactus/create
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function contact()
 	{
 		//
+
+        return 'send an email from this boing';
+
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /post
+	 * POST /contactus
 	 *
 	 * @return Response
 	 */
@@ -40,7 +44,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /post/{id}
+	 * GET /contactus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -48,15 +52,11 @@ class PostController extends \BaseController {
 	public function show($id)
 	{
 		//
-		// this will depend on comments and photos :: relation ship to be made
-        $post = Post::find($id);
-        $post = $post->load('photos', 'comments','comments.user');
-        return View::make('site.posts.show',['post'=> $post]);
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /post/{id}/edit
+	 * GET /contactus/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,7 +68,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /post/{id}
+	 * PUT /contactus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,7 +80,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /post/{id}
+	 * DELETE /contactus/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -89,8 +89,5 @@ class PostController extends \BaseController {
 	{
 		//
 	}
-
-
-
 
 }

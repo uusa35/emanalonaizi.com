@@ -8,8 +8,7 @@
             </div>
         </div>
         <hr>
-
-        {{ Form::open(['action'=>'CommentController@postComment', 'method'=>'post']) }}
+        {{ Form::open(['action'=>['CommentController@postComment',$post->id,Auth::id()], 'method'=>'post']) }}
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
@@ -32,6 +31,7 @@
                 </div>
             </div>
         </div>
+        {{ Form::hidden('post_id',$post->id) }}
         {{ Form::close() }}
     </div>
 

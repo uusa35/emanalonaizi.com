@@ -62,8 +62,8 @@
             </a>
             @endif
         @endif
-        <a class="btn btn-success btn-sm" href="{{ URL::action('AccountController@logOut') }}">
-            <i class="fa fa-building fa-lg"></i> {{ Lang::get('buttons.profile') }}
+        <a class="btn btn-success btn-sm" href="{{ URL::action('AccountController@getResetPassword') }}">
+            <i class="fa fa-building fa-lg"></i> {{ Lang::get('buttons.reset_password') }}
         </a>
         <a class="btn btn-danger btn-sm" href="{{ URL::action('AccountController@logOut') }}">
             <i class="fa fa-sign-out fa-lg"></i> {{ Lang::get('buttons.logout') }}

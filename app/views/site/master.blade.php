@@ -39,7 +39,7 @@
         <!-- navigation bar -->
         <div class="row">
             <div class="col-md-12">
-                @include('site.partials.navigation')
+               @yield('navigation')
             </div>
 
             <div class="row hidden-xs divid"></div>

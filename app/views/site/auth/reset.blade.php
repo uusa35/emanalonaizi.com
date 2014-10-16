@@ -1,22 +1,24 @@
-@extends('site.layouts._two_column')
+@extends('site.layouts._one_col')
 @section('content')
 <div class="page-header">
-	<h1>Forgot Password</h1>
+    <h1>{{ Lang::get('forms.change_password') }}</h1>
 </div>
-{{ Form::open(['action' => 'AuthController@postReset', 'method' => 'post']) }}
-    <input type="hidden" name="token" value="{{ $token }}">
+<div class="col-md-8 col-md-offset-2">
+
+    {{ Form::open(['action' => 'AccountController@postResetPassword', 'method' => 'post']) }}
+
 
     <div class="form-group">
-        <label for="email">{{{ Lang::get('confide.e_mail') }}}</label>
-        {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => Lang::get('confide.e_mail') ]) }}
+        <label for="email">{{{ Lang::get('forms.email') }}}</label>
+        {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => Lang::get('forms.email') ]) }}
     </div>
     <div class="form-group">
-        <label for="password">{{{ Lang::get('confide.password') }}}</label>
-        {{ Form::password('password', ['class' => 'form-control', 'placeholder' =>Lang::get('confide.password') ]) }}
+        <label for="password">{{{ Lang::get('buttons.password') }}}</label>
+        {{ Form::password('password', ['class' => 'form-control', 'placeholder' =>Lang::get('forms.password') ]) }}
     </div>
     <div class="form-group">
-        <label for="password_confirmation">{{{ Lang::get('confide.password_confirmation') }}}</label>
-        {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' =>Lang::get('confide.password_confirmation') ]) }}
+        <label for="password_confirmation">{{{ Lang::get('forms.pass_confirm') }}}</label>
+        {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' =>Lang::get('forms.pass_confirm') ]) }}
     </div>
 
     @if ( Session::get('error') )
@@ -27,8 +29,9 @@
     <div class="alert">{{{ Session::get('notice') }}}</div>
     @endif
 
-    <div class="form-actions form-group">
-        <button type="submit" class="btn btn-primary">{{{ Lang::get('confide.forgot.submit') }}}</button>
+    <div class="form-actions form-group pull-left">
+        <button type="submit" class="btn btn-primary">{{{ Lang::get('forms.change_password') }}}</button>
     </div>
-{{ Form::close() }}
+    {{ Form::close() }}
+</div>
 @stop

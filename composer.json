@@ -24,8 +24,8 @@
 			"app/tests/TestCase.php"
 		]
 	},
-	"psr-0": {
-		"lib" : "app/"
+    "psr-0": {
+		"Lib" : "app/"
 	},
 	"scripts": {
 		"post-install-cmd": [

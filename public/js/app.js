@@ -1,3 +1,4 @@
+/*
 $(document).ready(function () {
     // tooltip activation
     $("[data-toggle=tooltip]").tooltip();
@@ -138,4 +139,4 @@ $(document).ready(function () {
 function activatTab(tab){
     $('.tag').removeClass('active-tab-slide');
     tab.addClass('active-tab-slide');
-}
+}*/
