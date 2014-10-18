@@ -23,7 +23,7 @@ class BaseController extends Controller {
 
     public function errorMsg($msg = '') {
 
-        Session::flash('successMsg', $msg);
+        Session::flash('errorMsg', $msg);
     }
 
 

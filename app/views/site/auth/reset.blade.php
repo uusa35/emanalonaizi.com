@@ -1,20 +1,19 @@
 @extends('site.layouts._one_col')
 @section('content')
+
 <div class="page-header">
     <h1>{{ Lang::get('forms.change_password') }}</h1>
 </div>
 <div class="col-md-8 col-md-offset-2">
 
     {{ Form::open(['action' => 'AccountController@postResetPassword', 'method' => 'post']) }}
-
-
     <div class="form-group">
-        <label for="email">{{{ Lang::get('forms.email') }}}</label>
-        {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => Lang::get('forms.email') ]) }}
+        <label for="password">{{{ Lang::get('buttons.password') }}}</label>
+        {{ Form::password('old_password', ['class' => 'form-control', 'placeholder' =>Lang::get('forms.old_password') ]) }}
     </div>
     <div class="form-group">
         <label for="password">{{{ Lang::get('buttons.password') }}}</label>
-        {{ Form::password('password', ['class' => 'form-control', 'placeholder' =>Lang::get('forms.password') ]) }}
+        {{ Form::password('new_password', ['class' => 'form-control', 'placeholder' =>Lang::get('forms.new_password') ]) }}
     </div>
     <div class="form-group">
         <label for="password_confirmation">{{{ Lang::get('forms.pass_confirm') }}}</label>

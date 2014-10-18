@@ -23,7 +23,7 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        {{ Form::open(array('method' => 'POST', 'action' => array('ContactUsController@contact'), 'role'=>'form')) }}
+        {{ Form::open(['method' => 'POST', 'action' => 'ContactUsController@contact']) }}
 
         <div class="form-group">
             <label for="exampleInputEmail">{{ Lang::get('forms.email') }}</label>
@@ -37,7 +37,8 @@
             <label for="comment">{{ Lang::get('forms.content') }}</label>
             {{ Form::textarea('body', null , ['class' => 'form-control', 'placeholder' => Lang::get('forms.content')]) }}
         </div>
-        <button type="submit" class="btn btn-info pull-left">{{ Lang::get('forms.submit') }}</button>
+        {{ Form::submit(Lang::get('forms.submit'),['class'=>'btn btn-info pull-left']) }}
+
         {{ Form::close() }}
     </div>
     <div class="col-md-1"></div>

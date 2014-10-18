@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,13 +13,12 @@
 |
 */
 
-
 Route::get('/', ['as'=>'home', 'uses'=>'HomeController@index']);
 Route::get('category/{categoryId}', 'CategoryController@index');
 Route::resource('post','PostController',['only'=>'show']);
 Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
 Route::get('/contactus', ['as'=>'contactus', 'uses'=>'ContactUsController@index']);
-Route::get('/contactus/email', ['as'=>'contactus-email', 'uses'=>'ContactUsController@contact']);
+Route::post('/contactus/email', ['as'=>'contactus-email', 'uses'=>'ContactUsController@contact']);
 
 
 

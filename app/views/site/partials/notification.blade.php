@@ -10,6 +10,13 @@
                     {{ implode('', $errors->all('<li class="error">:message</li>')) }}
                 </ul>
             </div>
+            @else
+                <div class="alert alert-danger alert-block">
+                    <h4><i class="fa fa-fw fa-close"></i> {{ Lang::get('messages.error_msg') }}</h4>
+                    <ul>
+                        <li class="error"> {{ Session::get('errorMsg') }}</li>
+                    </ul>
+                </div>
             @endif
         @elseif(Session::get('messages') === 'success')
 

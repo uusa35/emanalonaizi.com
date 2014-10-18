@@ -27,8 +27,21 @@ class ContactUsController extends \BaseController {
 	{
 		//
 
-        return 'send an email from this boing';
+        $validator = Validator::make(Input::all(),Contactus::$rules);
 
+        if($validator->fails()) {
+            return Input::get('body');
+            return Redirect::to('/contactus')->with('messages','error')->withErrors($validator);
+        }
+        $sender_name = Input::get('sender_name');
+        $sender_email = Input::get('sender_email');
+        $body = Input::get('body');
+
+        $this->successMsg(Lang::get('messages.contactus_success'));
+        Mail::queue('emails.contactus',['sender_email'=>$sender_email,'sender_name'=>$sender_name, 'body'=>$body], function($message) use ($sender_name){
+            $message->to('uusa35@gmail.com', 'Test Name from Inside ContactUs Controller')->subject('Contact Us | Eman Al-Onaizi Blog | from | '. $sender_name);
+        });
+        return Redirect::to('/contactus')->with('messages','success');
 	}
 
 	/**

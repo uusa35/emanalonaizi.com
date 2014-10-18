@@ -15,9 +15,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
-    public static $rules = [
-        'username'=> 'required|unique|max:25',
+    public static $signupRules = [
+        'username'=> 'required|unique:users,username|max:25',
         'password' => 'required|min:4|max:10'
+    ];
+    public static $signinRules = [
+        'username'=> 'required',
+        'password' => 'required'
+    ];
+    public static $resetRules = [
+        'old_password'          => 'required',
+        'new_password'          => 'required|min:5',
+        'password_confirmation' => 'required|same:new_password'
     ];
 	/**
 	 * The attributes excluded from the model's JSON form.

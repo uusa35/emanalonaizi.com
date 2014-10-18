@@ -16,7 +16,13 @@ App::before(function($request)
 	//
     View::composer(['site.layouts._one_col','site.home'], function($view)
     {
-        $categories = Category::all();
+        	// remember categories for 24 hours
+    		// cache::remember --> if (statement) cache does not have categories .. then it will load otherwise it will procceed
+        if(!Cache::has('categories')) {
+        Cache::put('categories', Category::all(), 1440);
+        }
+        // will make the cache here for categories
+        $categories = Cache::get('categories');
         $view->with('categories' , $categories);
     });
 });
