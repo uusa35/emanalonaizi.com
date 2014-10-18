@@ -16,7 +16,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
     public static $signupRules = [
-        'username'=> 'required|unique:users,username|max:25',
+        'username'=> 'required|unique:users,username|min:5|max:25',
         'password' => 'required|min:4|max:10'
     ];
     public static $signinRules = [
@@ -27,6 +27,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'old_password'          => 'required',
         'new_password'          => 'required|min:5',
         'password_confirmation' => 'required|same:new_password'
+    ];
+    public static $forgotPasswordRules = [
+        'email'=> 'required|email',
     ];
 	/**
 	 * The attributes excluded from the model's JSON form.

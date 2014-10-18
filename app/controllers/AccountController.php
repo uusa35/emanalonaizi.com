@@ -17,7 +17,24 @@ class AccountController extends \BaseController {
     }
 
     public function postForgotPassword() {
-        return 'post forget passw';
+        $email = Input::get('email');
+        $validator = Validator::make(Input::all(),User::$forgotPasswordRules );
+        if($validator->fails()) {
+            return Redirect::back()->with('messages','error')->withErrors($validator);
+        }
+        $user = User::where('email','=',$email);
+        $new_password = Str::random($length = 5);
+        $user->password = Hash::make($new_password);
+        $user->save();
+        if($user) {
+            $this->successMsg(Lang::get('forgotpassword_success'));
+            Mail::queue('emails.forgotpassword',['sender_email'=>$user->email, 'new_password'=> $new_password], function($message) use ($user){
+                $message->to('uusa35@gmail.com', 'Test Name from Inside ContactUs Controller')->subject('ForgotPassword | Eman Al-Onaizi Blog');
+            });
+            return Redirect::back()->with('messages','success');
+        }
+        $this->successMsg(Lang::get('forgotpassword_error'));
+        return Redirect::back()->with('messages','error');
     }
 
     public function getResetPassword() {
@@ -49,7 +66,7 @@ class AccountController extends \BaseController {
 
     // login form checkin function
 	public function postSignIn() {
-        $credentials = ['username'=> Input::get('username'), 'password'=> Input::get('password')];
+        $credentials = ['username'=> Input::get('username'), 'password'=> Input::get('password'),'active'=>'1'];
         $validator = Validator::make($credentials,User::$signinRules);
         if($validator->passes()) {
             $rememberMe = Input::get('remember_me') ? 'true' : 'false';

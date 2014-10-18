@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder {
                 'twitter' => 'mytwitter',
                 'facebook' => 'myfacebook',
                 'instagram' => 'myinstagram',
+                'active'    => true,
 			]);
             User::create([
                 'username' => 'user',
@@ -25,6 +26,7 @@ class UserTableSeeder extends Seeder {
                 'twitter' => 'mytwitter',
                 'facebook' => 'myfacebook',
                 'instagram' => 'myinstagram',
+                'active'    => true,
             ]);
 
 	}

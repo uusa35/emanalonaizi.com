@@ -26,7 +26,7 @@
     {{ Form::text('email',NULL,array('class' => 'form-control input-lg','placeholder' => Lang::get('forms.email'))) }}
     <br>
 
-    {{ Form::password('password',array('class' => 'form-control input-lg','placeholder' => Lang::get('forms.pass'))) }}
+    {{ Form::password('password',array('class' => 'form-control input-lg','placeholder' => Lang::get('forms.password'))) }}
     <br>
 
     {{ Form::password('password_confirmation',array('class' => 'form-control input-lg','placeholder' => Lang::get('forms.pass_confirm'))) }}

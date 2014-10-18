@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration {
             $table->string('facebook');
             $table->string('instagram');
 			$table->string('remember_token');
-			$table->string('activation_code');
+			$table->boolean('active');
 			$table->timestamps();
 		});
 	}
