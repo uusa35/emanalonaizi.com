@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-md-2 col-sm-2 hidden-xs">
-                {{ HTML::image('http://placehold.it/150x180','Eman',array('class'=> 'img-responsive')) }}
+                {{ HTML::image('images/eman-photo.png','Eman',array('style'=>'max-height:150px;', 'class'=> 'img-responsive thumbnail')) }}
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="row">
