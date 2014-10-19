@@ -9,7 +9,28 @@ class AccountController extends \BaseController {
     }
 
     public function postSignUp () {
-        return 'this is from inside post sign up';
+        //{"_token":"pS3dKY2fnJxPycZWCz1KpLOTKanWEZESIRosbGR6","first_name":"","last_name":"","username":"","email":"","password":"","password_confirmation":"","mobile":"","instagram":"","facebook":"","twitter":""}
+        $validator = Validator::make(Input::all(),User::$signupRules);
+        if($validator->fails()) {
+            return Redirect::back()->with('messages','error')->withErrors($validator);
+        }
+/*        User::create([
+            'first_name'    => Input::get('first_name'),
+            'last_name'     => Input::get('last_name'),
+            'username'      => Input::get('username'),
+            'email'         => Input::get('email'),
+            'password'      => Hash::make(Input::get('password')),
+            'mobile'        => Input::get('mobile'),
+            'instagram'     => Input::get('instagram'),
+            'facebook'      => Input::get('facebook'),
+            'twitter'       => Input::get('twitter')
+        ]);*/
+        $user = new User;
+        $user->fill(Input::except('password_confirmation'));
+        if($user->save()) {
+        return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.signup_success')]);
+        }
+        return Redirect::back()->with(['messages'=> 'error','errorMsg'=>Lang::get('messages.signup_error')]);
     }
 
     public function getForgotPassword() {
@@ -22,23 +43,20 @@ class AccountController extends \BaseController {
         if($validator->fails()) {
             return Redirect::back()->with('messages','error')->withErrors($validator);
         }
-        $user = User::where('email','=',$email);
+        $user = User::where('email','=',$email)->first();
         $new_password = Str::random($length = 5);
-        $user->password = Hash::make($new_password);
-        $user->save();
+        $hashed_new = Hash::make($new_password);
+        $user->update(['password'=>  $hashed_new]);
         if($user) {
-            $this->successMsg(Lang::get('forgotpassword_success'));
-            Mail::queue('emails.forgotpassword',['sender_email'=>$user->email, 'new_password'=> $new_password], function($message) use ($user){
-                $message->to('uusa35@gmail.com', 'Test Name from Inside ContactUs Controller')->subject('ForgotPassword | Eman Al-Onaizi Blog');
+            Mail::queue('emails.forgotpassword',['username'=>$user->username, 'new_password'=> $new_password, 'email'=> $user->email], function($message) use ($user){
+                $message->to($user->email, $user->username)->subject('ForgotPassword | Eman Al-Onaizi Blog');
             });
-            return Redirect::back()->with('messages','success');
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.forgotpassword_success')]);
         }
-        $this->successMsg(Lang::get('forgotpassword_error'));
-        return Redirect::back()->with('messages','error');
+        return Redirect::back()->with(['messages'=>'error','successMsg'=>Lang::get('messages.forgotpassword_error')]);
     }
 
     public function getResetPassword() {
-
         return View::make('site.auth.reset');
     }
 
@@ -55,12 +73,10 @@ class AccountController extends \BaseController {
         if(Hash::check($old_password, $user->getAuthPassword())) {
             $user->password = Hash::make($new_password);
             if($user->save()) {
-            $this->successMsg(Lang::get('messages.reset_success'));
-            return Redirect::back()->with('messages','success');
+            return Redirect::back()->with(['messages'=>'success','successMsg' => Lang::get('messages.reset_success')]);
             }
         }
-        $this->errorMsg(Lang::get('messages.reset_error'));
-        return Redirect::to('account/reset')->with('messages','error');
+        return Redirect::to('account/reset')->with(['messages'=>'error','errorMsg'=>Lang::get('messages.reset_error')]);
     }
 
 
@@ -72,12 +88,10 @@ class AccountController extends \BaseController {
             $rememberMe = Input::get('remember_me') ? 'true' : 'false';
             $user = Auth::attempt($credentials, $rememberMe);
             if($user) {
-                $this->successMsg(Lang::get('messages.signin_success'));
-                return Redirect::back()->with('messages','success');
+                return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.signin_success')]);
             }
         }
-        $this->errorMsg(Lang::get('messages.signin_error'));
-        return Redirect::back()->with('messages','error')->withErrors($validator);
+        return Redirect::back()->with(['messages'=>'error','errorMsg'=> Lang::get('messages.signin_success')])->withErrors($validator);
     }
 
 

@@ -157,7 +157,10 @@ return array(
         "date" => "التاريخ",
         "time" => "الوقت",
         "available" => "متاح",
-        "size" => "الحجم"
+        "size" => "الحجم",
+        'new password' => 'كلمة المرور الجديدة',
+        'password confirmation' => 'مطابقة كلمة المرور',
+        'forgotpassword_success' => 'تم طلب كلمة مرور جديدة .. يرجى مراجعة البريد الإلكتروني المسجل لدينا'
     ),
 
 );

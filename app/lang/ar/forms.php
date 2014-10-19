@@ -13,8 +13,8 @@ return [
     'new_user'          => 'مستخدم جديد',
     'create_user'       => 'إنشاء مستخدم جديد',
     'mobile'            => 'الهاتف النقال',
-    'first_name'        => 'اسم المستخدم',
-    'last_name'         => 'اسم العائل',
+    'first_name'        => 'الاسم الاول',
+    'last_name'         => 'اسم العائلة',
     'email'             => 'البريد الإلكتروني',
     'forgot_submit'      => 'تذكر كلمة المرور',
     'forgot_password'   => 'تذكر كلمة المرور',
@@ -27,7 +27,10 @@ return [
     'submit'            => 'إرسال',
     'name'              => 'الاســـم',
     'old_password'      => 'كلمة المرور القديمة',
-    'new_password'          => 'كلمة المرور الجديدة',
+    'new_password'      => 'كلمة المرور الجديدة',
+    'instagram'         => 'إنستجرام',
+    'facebook'          => 'فيسبوك',
+    'twitter'           => 'تويتر',
 
 
 

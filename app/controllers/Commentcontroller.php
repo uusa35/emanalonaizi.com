@@ -38,7 +38,7 @@ class Commentcontroller extends \BaseController {
             'body'  =>Input::get('body')
         ],Comment::$rules);
         if($validator->fails()) {
-            return Redirect::back()->withInput()->withErrors($validator)->with('messages','error');
+            return Redirect::back()->withInput()->withErrors($validator)->with(['messages'=>'error']);
         }
         $comment = Comment::create([
                     'title'     => Input::get('title'),
@@ -46,9 +46,7 @@ class Commentcontroller extends \BaseController {
                     'post_id'   => $post_id,
                     'user_id'   => $user_id
                     ]);
-
-        $this->successMsg(Lang::get('messages.comment_success'));
-        return Redirect::back()->with('success',Lang::get('messages.comment_success'))->with('messages','success');
+        return Redirect::back()->with('success',Lang::get('messages.comment_success'))->with(['messages'=>'success','successMsg'=>Lang::get('messages.comment_success')]);
 	}
 
 	/**

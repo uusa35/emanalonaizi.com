@@ -8,16 +8,21 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
-
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
 	protected $table = 'users';
+    public $guarded = [''];
+    // Rules
     public static $signupRules = [
-        'username'=> 'required|unique:users,username|min:5|max:25',
-        'password' => 'required|min:4|max:10'
+        'first_name'    => 'required|min:3|max:100|alpha',
+        'last_name'     => 'required|min:3|max:100|alpha',
+        'username'      => 'required|unique:users,username|min:3|max:25',
+        'password'      => 'required|min:4|alpha_num',
+        'password_confirmation' => 'required|same:password',
+        'mobile'        => 'numeric',
     ];
     public static $signinRules = [
         'username'=> 'required',
@@ -36,7 +41,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+
 
     // a User hasMany Comments
     public function comments() {
