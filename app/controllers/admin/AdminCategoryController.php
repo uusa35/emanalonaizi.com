@@ -1,28 +1,29 @@
 <?php
 
-class CategoryController extends \BaseController {
+class AdminCategoryController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /category
+	 * GET /admin/admincategory
 	 *
 	 * @return Response
 	 */
-	public function index($categoryId)
+    public $category;
+    public function __construct(Category $category) {
+        $this->category = $category;
+    }
+	public function index()
 	{
 		//
-        $category = Category::find($categoryId);
-
-
+        /*$category = $this->category->all();*/
         // eagger loading
-        $posts = $category->posts()->with('photos')->paginate(2);
-        return View::make('site.category.index',compact('posts'));
-
+        $allPosts = $this->category->posts()->with('photos')->paginate(2);
+        return View::make('admin.category.index',['posts' => $allPosts]);
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /category/create
+	 * GET /admin/admincategory/create
 	 *
 	 * @return Response
 	 */
@@ -33,7 +34,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /category
+	 * POST /admin/admincategory
 	 *
 	 * @return Response
 	 */
@@ -44,7 +45,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /category/{id}
+	 * GET /admin/admincategory/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -56,7 +57,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /category/{id}/edit
+	 * GET /admin/admincategory/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,7 +69,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /category/{id}
+	 * PUT /admin/admincategory/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,7 +81,7 @@ class CategoryController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /category/{id}
+	 * DELETE /admin/admincategory/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

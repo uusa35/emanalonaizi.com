@@ -19,7 +19,9 @@ return array(
     'new_user'          => 'مستخدم جديد',
     'create_user'       => 'إنشاء مستخدم جديد',
     'comment'           => 'إضافة تعليق جديد',
-    'reset_password'    => 'تغير كلمة المرور'
+    'reset_password'    => 'تغير كلمة المرور',
+    'edit'              => 'تعديل',
+    'delete'            => 'حذف',
 
 
 );

@@ -70,6 +70,7 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
 
         // index for the dashboard area -- go directly to post index
         Route::get('account/',['as'=>'account','uses'=> 'AdminPostController@index']);
+        Route::get('account/posts',['as'=>'account','uses'=> 'AdminCategoryController@index']);
         Route::resource('post', 'PostController',['only'=>['index','create','update']]);
         Route::get('account/users',['as'=>'account-users','uses'=>'AdminAccountController@index']);
         Route::get('account/comments',['as'=>'account-comments','uses'=>'AdminCommentController@index']);
