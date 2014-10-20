@@ -17,7 +17,7 @@ class AdminPostController extends \BaseController {
 	public function index()
 	{
 		//
-        $allPosts = $this->post->all();
+        $allPosts = $this->post->paginate(10);
         return View::make('admin.posts.index',['posts'=>$allPosts]);
 	}
 

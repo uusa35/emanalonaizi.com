@@ -1,11 +1,11 @@
 <?php
 
-class AdminAboutUsController extends \BaseController {
+class AdminaboutusController extends \BaseController {
 
 
-    public $contactus;
-    public function __construct(ContactUs $contactus) {
-        $this->contactus = $contactus;
+    public $aboutus;
+    public function __construct(Aboutus $aboutus) {
+        $this->aboutus = $aboutus;
     }
     /**
 	 * Display a listing of the resource.
@@ -60,9 +60,14 @@ class AdminAboutUsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
 		//
+        $aboutus = $this->aboutus->where('id' ,'=','1')->first();
+        if($aboutus) {
+            return View::make('admin.aboutus.edit', compact('aboutus'));
+        }
+        throw new NotFoundHttpException;
 	}
 
 	/**
@@ -75,6 +80,17 @@ class AdminAboutUsController extends \BaseController {
 	public function update($id)
 	{
 		//
+        $validator = Validator::make(Input::all(), Aboutus::$updateRules);
+        if($validator->fails()) {
+            return Redirect::back()->withInput(Input::all())->withErrors($validator)->with('messages','error');
+        }
+        $aboutusUpdate = $this->aboutus->find($id);
+        $aboutusUpdate->title = Input::get('title');
+        $aboutusUpdate->body = Input::get('body');
+        if($aboutusUpdate->save()) {
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.aboutus_success')]);
+        }
+        return Redirect::back()->with(['messages'=>'success','errorMsg'=>Lang::get('messages.aboutus_error')]);
 	}
 
 	/**

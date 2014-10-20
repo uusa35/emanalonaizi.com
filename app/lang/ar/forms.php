@@ -31,6 +31,7 @@ return [
     'instagram'         => 'إنستجرام',
     'facebook'          => 'فيسبوك',
     'twitter'           => 'تويتر',
+    'save'              => 'حفــظ'
 
 
 

@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration {
             $table->string('twitter');
             $table->string('facebook');
             $table->string('instagram');
+            $table->string('remember_token');
 			$table->boolean('active');
 			$table->timestamps();
 		});

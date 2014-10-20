@@ -75,10 +75,12 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
         Route::get('account/users',['as'=>'account-users','uses'=>'AdminAccountController@index']);
         Route::get('account/comments',['as'=>'account-comments','uses'=>'AdminCommentController@index']);
         Route::get('account/contactus',['as'=>'account-contactus','uses'=>'AdminContactUsController@index']);
-        Route::get('account/aboutus',['as'=>'account-aboutus','uses'=>'AdminAboutUsController@index']);
+        Route::get('account/aboutus',['as'=>'account-aboutus','uses'=>'AdminAboutUsController@edit']);
+
         Route::group(['before'=>'csrf'], function () {
             // store + edit + delete
             Route::resource('post','PosController',['except'=>['index','create','update']]);
+            Route::post('account/aboutus/update/{id}',['as'=>'account-aboutus-update','uses'=>'AdminAboutUsController@update']);
         });
 
 

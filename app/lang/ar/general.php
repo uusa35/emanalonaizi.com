@@ -23,7 +23,10 @@ return array(
     'admin'         => [
         'all_posts'     => 'التدوينات',
         'all_users'     => 'مستخدمي الموقع',
+        'title'         => 'العنوان',
+        'body'          => 'المحتوى'
     ],
+
 
 
 

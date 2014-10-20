@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-5 pull-left">
-                {{ $post->comments[$i]->user['username']}}
+                {{ $post->comments[$i]->user['first_name'].' '.$post->comments[$i]->user['last_name']}}
                 <i class="fa fa-clock-o"></i>
 
 

@@ -29,7 +29,7 @@
                 </li>
                 <li class="{{ Request::is('admin/account/comments') ? 'active' : '' }}"><a href="{{ action('AdminCommentController@index')}}">{{ Lang::get('nav.all_comments') }}</a></li>
                 <li class="{{ Request::is('admin/account/contactus') ? 'active' : '' }}"><a href="{{ action('AdminContactUsController@index')}}">{{ Lang::get('nav.contactus') }}</a></li>
-                <li class="{{ Request::is('admin/account/aboutus') ? 'active' : '' }}"><a href="{{ action('AdminAboutUsController@index')}}">{{ Lang::get('nav.aboutus') }}</a></li>
+                <li class="{{ Request::is('admin/account/aboutus') ? 'active' : '' }}"><a href="{{ action('AdminAboutUsController@edit')}}">{{ Lang::get('nav.aboutus') }}</a></li>
 
             </ul>
             <!--<form class="navbar-form navbar-left" role="search">
