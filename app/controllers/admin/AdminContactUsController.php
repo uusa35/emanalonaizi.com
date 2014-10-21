@@ -4,6 +4,10 @@ class AdminContactUsController extends \BaseController {
 
 
 
+    public $contactus;
+    public function __construct(Contactus $contactus) {
+        $this->contactus = $contactus;
+    }
 	/**
 	 * Display a listing of the resource.
 	 * GET /admincontactus
@@ -13,7 +17,7 @@ class AdminContactUsController extends \BaseController {
 	public function index()
 	{
 		//
-        return View::make('admin.contactus.index');
+
 	}
 
 	/**
@@ -57,9 +61,14 @@ class AdminContactUsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
 		//
+        $info = $this->contactus->where('id' ,'=','1')->first();
+        if($info) {
+            return View::make('admin.contactus.edit', compact('info'));
+        }
+        throw new NotFoundHttpException;
 	}
 
 	/**
@@ -72,6 +81,21 @@ class AdminContactUsController extends \BaseController {
 	public function update($id)
 	{
 		//
+        $infoUpdate = $this->contactus->where('id','=','1')->first();
+
+        if($infoUpdate) {
+            $validator = Validator::make(Input::all(),Contactus::$rulesUpdate);
+
+            if($validator->fails()) {
+                return Redirect::back()->withInput(Input::all())->withErrors($validator)->with('messages','error');
+                return Redirect::back()->with(['messages'=>'error'])->withInput(Input::all())->withErrors($validator);
+            }
+            $infoUpdate = $this->contactus->update(Input::except('_token'));
+            if($infoUpdate) {
+                return Redirect::back()->with(['messages'=>'success','successMsg'=> Lang::get('messages.contactus_success')]);
+            }
+        }
+        return Redirect::back()->with(['messages'=>'error','errorMsg'=> Lang::get('messages.contactus_error')]);
 	}
 
 	/**

@@ -2,7 +2,12 @@
 
 class CategoryController extends \BaseController {
 
-	/**
+
+    public $category;
+    public function __construct(Category $category) {
+        $this->category = $category;
+    }
+    /**
 	 * Display a listing of the resource.
 	 * GET /category
 	 *
@@ -11,11 +16,9 @@ class CategoryController extends \BaseController {
 	public function index($categoryId)
 	{
 		//
-        $category = Category::find($categoryId);
-
-
+        $category = $this->category->find($categoryId);
         // eagger loading
-        $posts = $category->posts()->with('photos')->paginate(2);
+        $posts = $category->posts()->with('photos')->paginate(3);
         return View::make('site.category.index',compact('posts'));
 
 	}

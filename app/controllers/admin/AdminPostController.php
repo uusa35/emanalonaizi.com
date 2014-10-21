@@ -17,7 +17,7 @@ class AdminPostController extends \BaseController {
 	public function index()
 	{
 		//
-        $allPosts = $this->post->paginate(10);
+        $allPosts = $this->post->orderBy('created_at','DESC')->paginate(5);
         return View::make('admin.posts.index',['posts'=>$allPosts]);
 	}
 
@@ -30,6 +30,7 @@ class AdminPostController extends \BaseController {
 	public function create()
 	{
 		//
+        return View::make('admin.posts.create');
 	}
 
 	/**

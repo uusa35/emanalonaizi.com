@@ -3,46 +3,41 @@
     @parent
     {{ HTML::style('js/html/style.css') }}
 @stop
-
-
 @section('content')
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">
         <div class="row">
-            <div class="col-md-8"><h4>{{ Lang::get('general.contactus') }}</h4></div>
+            <div class="col-md-8"><h4>{{ Lang::get('buttons.add_new_post') }}</h4></div>
         </div>
     </div>
     <div class="panel-body">
-        {{ Form::model($aboutus, ['action' => ['AdminAboutUsController@update', $aboutus->id],'class'=>'form']) }}
+        {{ Form::open(['action' => 'AdminPostController@create', 'method' => 'post', 'class'=>'form']) }}
         <div class="row">
-            <div class="col-xs-8 col-md-8 col-md-offset-2">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="form-group">
                     {{ Form::label('title', Lang::get('general.admin.title')) }}
                     {{ Form::text('title',NULL,['class'=>'form-control input-lg']) }}
                 </div>
             </div>
-            <div class="col-xs-8 col-md-8 col-md-offset-2">
+            <div class="col-xs-12 col-md-12">
                 <div class="form-group">
-                    {{ Form::label('body', Lang::get('general.admin.body')) }}
-                    {{ Form::textarea('body',NULL,['class'=>'form-control input-lg html','id'=>'']) }}
-
-
+                    {{ Form::label('title', Lang::get('general.admin.title')) }}
+                    {{ Form::textarea('title',NULL,['class'=>'form-control input-lg']) }}
                 </div>
             </div>
-            <div class="col-xs-8 col-md-8 col-md-offset-2">
-                <div class="form-group pull-left">
-                {{ Form::submit(Lang::get('forms.save'),['class'=>'btn btn-primary']) }}
+            <div class="col-xs-12 col-md-12 ">
+                <div class="form-group pull-left bt-lg">
+                    {{ Form::submit(Lang::get('forms.save'),['class'=>'btn btn-primary']) }}
                 </div>
             </div>
-        {{ Form::close() }}
-      </div>
+            {{ Form::close() }}
+        </div>
+    </div>
 </div>
 @stop
-
-
 @section('javascript')
-    @parent
+@parent
 {{ HTML::script('http://js.nicedit.com/nicEdit-latest.js') }}
 
 <script type="text/javascript">

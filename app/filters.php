@@ -25,6 +25,13 @@ App::before(function($request)
         $categories = Cache::get('categories');
         $view->with('categories' , $categories);
     });
+    View::composer(['site.partials.footer'], function($view) {
+        if(!Cache::has('social_media')) {
+            Cache::put('social_media',Contactus::find(1),15);
+        }
+        $socialMedia = Cache::get('social_media');
+        $view->with('socialMedia',$socialMedia);
+    });
 });
 
 

@@ -1,26 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="row">
     <div class="col-md-2 hidden-sm"></div>
     <div class="col-md-8 col-sm-12 col-xs-12">
@@ -47,11 +24,8 @@
             <h4><i class="fa fa-fw fa-check-square"></i> {{ Session::get('successMsg') }}</h4>
         </div>
         @endif
-
         @else
         @endif
     </div>
     <div class="col-md-2"></div>
-
-
 </div>

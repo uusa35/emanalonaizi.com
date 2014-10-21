@@ -15,7 +15,8 @@ class AdminCommentController extends \BaseController {
 	public function index()
 	{
 		//
-        return View::make('admin.comments.index');
+        $comments = $this->comment->orderBy('created_at','DESC')->paginate(5);
+        return View::make('admin.comments.index', compact('comments'));
 	}
 
 	/**

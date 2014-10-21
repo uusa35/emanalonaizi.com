@@ -1,9 +1,9 @@
 <!--footer start-->
 <div id="footer" >
     <div class="col-md-4 col-xs-12 ">
-        <div class="col-md-1 col-xs-4 social-icons"><a href="https://twitter.com/uusa35"><i class="fa fa-twitter fa-lg"></i></a> </div>
-        <div class="col-md-1 col-xs-4 social-icons"><a href="http://www.youtube.com/user/uusa35"><i class="fa fa-youtube fa-lg"></i></a></div>
-        <div class="col-md-1 col-xs-4 social-icons"><a href="http://instagram.com/uusa35"><i class="fa fa-instagram fa-lg"></i></a></div>
+        <div class="col-md-1 col-xs-4 social-icons"><a target="_blank" href="https://twitter.com/{{ $socialMedia->twitter }}"><i class="fa fa-twitter fa-lg"></i></a> </div>
+        <div class="col-md-1 col-xs-4 social-icons"><a target="_blank" href="http://www.facebook.com/{{ $socialMedia->facebook }}"><i class="fa fa-facebook fa-lg"></i></a></div>
+        <div class="col-md-1 col-xs-4 social-icons"><a target="_blank" href="http://instagram.com/{{ $socialMedia->instagram }}"><i class="fa fa-instagram fa-lg"></i></a></div>
     </div>
     <div class="col-md-8 col-xs-12 copyright">
         <div class="row">

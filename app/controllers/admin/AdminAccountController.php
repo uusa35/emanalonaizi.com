@@ -17,7 +17,8 @@ class AdminAccountController extends \BaseController {
 	public function index()
 	{
 		//
-        return View::make('admin.users.index');
+        $users = $this->user->where('id','!=','1')->paginate(5);
+        return View::make('admin.users.index',compact('users'));
 	}
 
 	/**

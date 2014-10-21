@@ -8,11 +8,12 @@
         <address>
             <h2 style="background-color: rgba(221, 220, 219, 0.83); padding:10px;">{{ Lang::get('general.contactus') }}</h2>
             @if($contact)
-            <b>{{ Lang::get('forms.email')  }}</b> : {{ $contact->email }}</br>
-            <b>{{ Lang::get('forms.address')}}</b> : {{ $contact->address }}</br>
-            <b>{{ Lang::get('forms.phone')  }}</b> : {{ $contact->tel }} </br>
-            <b>{{ Lang::get('forms.mobile') }}</b> : {{ $contact->mobile }} </br>
-
+            </br>
+            <b>{{ Lang::get('forms.name')  }}</b> : {{ $contact->name }}</br></br>
+            <b>{{ Lang::get('forms.email')  }}</b> : {{ $contact->email }}</br></br>
+            <b>{{ Lang::get('forms.address')}}</b> : {{ $contact->address }}</br></br>
+            <b>{{ Lang::get('forms.phone')  }}</b> : {{ $contact->tel }} </br></br>
+            <b>{{ Lang::get('forms.mobile') }}</b> : {{ $contact->mobile }}
             @endif
         </address>
     </div>

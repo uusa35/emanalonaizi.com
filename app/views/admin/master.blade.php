@@ -5,8 +5,7 @@
     <title>{{ Lang::get('general.blogTitle') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('site.layouts.styles')
-
+   @yield('style')
 </head>
 <body>
 <div class="container">
@@ -51,7 +50,9 @@
 
     <div class="row">
         <div class="col-md-12">
-            <!--place for notification-->
+            @if(Session::has('messages'))
+                @include('site.partials.notification')
+            @endif
         </div>
     </div>
     <!-- end of header -->

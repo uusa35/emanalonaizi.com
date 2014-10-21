@@ -84,7 +84,7 @@ class AdminaboutusController extends \BaseController {
         if($validator->fails()) {
             return Redirect::back()->withInput(Input::all())->withErrors($validator)->with('messages','error');
         }
-        $aboutusUpdate = $this->aboutus->find($id);
+        $aboutusUpdate = $this->aboutus->where('id','=','1')->first();
         $aboutusUpdate->title = Input::get('title');
         $aboutusUpdate->body = Input::get('body');
         if($aboutusUpdate->save()) {

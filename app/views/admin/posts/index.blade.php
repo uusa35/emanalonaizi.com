@@ -4,15 +4,18 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <h3>{{ Lang::get('general.admin.all_posts') }}</h3>
+        <div class="row">
+            <div class="col-md-8"><h4>{{ Lang::get('general.admin.all_posts') }}</h4></div>
+            <div class="col-md-4">{{ HTML::link(URL::action('AdminPostController@create'), Lang::get('buttons.add_new_post') , ['class'=>'btn btn-info pull-left']) }}</div>
+        </div>
     </div>
     <div class="panel-body">
     <!-- Table -->
     <div class="col-md-12">
         <table class="table table-bordered table-hovered table-striped table-responsive">
         <thead class="text-center">
-            <th>id</th>
-            <th>title</th>
+            <th>{{ Lang::get('general.id') }}</th>
+            <th>{{ Lang::get('general.title') }}</th>
             <th>{{ Lang::get('buttons.edit') }}</th>
             <th>{{ Lang::get('buttons.delete') }}</th>
         </thead>
