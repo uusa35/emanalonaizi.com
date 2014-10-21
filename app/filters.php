@@ -14,6 +14,7 @@
 App::before(function($request)
 {
 	//
+    echo '<h1>'.App::environment().'</h1>';
     View::composer(['site.layouts._one_col','site.home'], function($view)
     {
         	// remember categories for 24 hours
