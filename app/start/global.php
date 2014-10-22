@@ -11,6 +11,9 @@
 |
 */
 
+// to require the events to be loaded above all classes
+require app_path().'/events.php';
+
 ClassLoader::addDirectories(array(
 
 	app_path().'/commands',

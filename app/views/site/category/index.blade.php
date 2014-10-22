@@ -17,7 +17,7 @@
         <div class="col-md-3">
             @if(isset($post->photos[0]))
               <!--  {{ HTML::image('uploads/medium/'.$post->photos[0]->name.'','image1',array('class'=>'img-responsive img-thumbnail')) }}-->
-            <img src="{{ $post->photos[0]->path }} " class="img-responsive img-thumbnail" alt="{{ $post->title }}"/>
+            <img src="{{ '/uploads/thumbnail/'.$post->photos[0]->path }}" class="img-responsive img-thumbnail" alt="{{ $post->title }}"/>
               <!--{{ HTML::image(''.$post->photos[0]->path.'',$post->title,array('class'=>'img-responsive img-thumbnail')) }}-->
             @else
             <a href="{{action('PostController@show',$post->id) }}">

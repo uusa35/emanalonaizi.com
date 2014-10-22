@@ -2,6 +2,7 @@
 @scection('styles')
     @parent
     {{ HTML::style('js/html/style.css') }}
+
 @stop
 @section('content')
 <div class="panel panel-default">
@@ -12,7 +13,15 @@
         </div>
     </div>
     <div class="panel-body">
-        {{ Form::open(['action' => 'AdminPostController@create', 'method' => 'post', 'class'=>'form']) }}
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+
+                <form action="" class="dropzone" id="my-dropzone"></form>
+            </div>
+        </div>
+
+        {{ Form::open(['action' => 'AdminPostController@store', 'method' => 'post', 'class'=>'form','files'=>'true']) }}
         <div class="row">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="form-group">
@@ -20,10 +29,23 @@
                     {{ Form::text('title',NULL,['class'=>'form-control input-lg']) }}
                 </div>
             </div>
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <div class="form-group">
+                    {{ Form::label('categories', Lang::get('general.admin.category')) }}
+
+                    {{ Form::select('category', $categories, NULL,['class'=>'form-control input-lg']) }}
+                </div>
+            </div>
             <div class="col-xs-12 col-md-12">
                 <div class="form-group">
                     {{ Form::label('title', Lang::get('general.admin.title')) }}
-                    {{ Form::textarea('title',NULL,['class'=>'form-control input-lg']) }}
+                    {{ Form::file('image[]',['class'=>'form-control input-lg','multiple']) }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    {{ Form::label('body', Lang::get('general.admin.title')) }}
+                    {{ Form::textarea('body',NULL,['class'=>'form-control input-lg']) }}
                 </div>
             </div>
             <div class="col-xs-12 col-md-12 ">
@@ -39,6 +61,7 @@
 @section('javascript')
 @parent
 {{ HTML::script('http://js.nicedit.com/nicEdit-latest.js') }}
+
 
 <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() }); // convert all text areas to rich text editor on that page

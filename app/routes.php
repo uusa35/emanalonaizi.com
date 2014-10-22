@@ -88,7 +88,7 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
             Route::resource('post','PosController',['except'=>['index','create','update']]);
             Route::post('account/aboutus/update/{id}',['as'=>'account-aboutus-update','uses'=>'AdminAboutUsController@update']);
             Route::post('account/contactus/update/{id}',['as'=>'account-contactus-update','uses'=>'AdminContactUsController@update']);
-            Route::get('account/post/store',['as'=>'account-post-store','uses'=>'AdminPostController@store']);
+            Route::post('account/post/store',['as'=>'account-post-store','uses'=>'AdminPostController@store']);
         });
 
 

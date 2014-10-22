@@ -39,6 +39,7 @@ return array(
         'instagram'     => 'إنستجرام',
         'address'       => 'العنوان',
         'all_comments'  => 'التعليقات',
+        'category'      => 'اختيار التصنيف',
     ],
 
 

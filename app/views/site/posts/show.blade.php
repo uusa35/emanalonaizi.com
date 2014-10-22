@@ -65,8 +65,8 @@
 
                         @for($i=0;$i < count($post->photos);$i++)
                         <div class="col-xs-6 col-md-3">
-                        <a href="{{ URL::to($post->photos[$i]->path)}}" data-gallery>
-                            {{ HTML::image($post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
+                        <a href="{{ URL::to('/uploads/thumbnail/'.$post->photos[$i]->path)}}" data-gallery>
+                            {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
                         </a>
                         </div>
                         @endfor

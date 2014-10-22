@@ -2,7 +2,13 @@
 
 class Post extends \Eloquent {
 
-	protected $fillable = [];
+	protected $guarded = [];
+    public static $postRulesUpload = [
+        'title'     => 'required|min:3|max:250',
+        'body'      => 'required|min:5',
+        'image'     => 'required|min:1|max:5',
+        'category'  => 'required'
+    ];
 
 
 
@@ -22,4 +28,5 @@ class Post extends \Eloquent {
     public function photos() {
         return $this->hasMany('Photo');
     }
+
 }

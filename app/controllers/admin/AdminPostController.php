@@ -1,10 +1,14 @@
 <?php
 
+use Lib\Validators\PhotoValidator as PhotoValidator;
+
 class AdminPostController extends \BaseController {
 
     public $post;
-    public function __construct(Post $post) {
+    public $category;
+    public function __construct(Post $post,Category $category) {
         $this->post = $post;
+        $this->category = $category;
     }
 
 	/**
@@ -30,7 +34,9 @@ class AdminPostController extends \BaseController {
 	public function create()
 	{
 		//
-        return View::make('admin.posts.create');
+        $categories = $this->category->all();
+        $categories = $categories->lists('name', 'id');
+        return View::make('admin.posts.create', compact('categories'));
 	}
 
 	/**
@@ -42,6 +48,25 @@ class AdminPostController extends \BaseController {
 	public function store()
 	{
 		//
+        $validator = Validator::make(Input::all(),Post::$postRulesUpload);
+        if($validator->passes()) {
+            $images = Input::file('image');
+            $imageValidator = new PhotoValidator();
+            $imageValidator->PhotoExtentionValidator($images);
+            if($imageValidator) {
+                $this->post->create([
+                    'title'      => Input::get('title'),
+                    'body'       => Input::get('body'),
+                ]);
+
+                $createdPost = $this->post->orderBy('created_at','desc')->first();
+                DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
+                Event::fire('post.create',[$createdPost,$images]);
+            }
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
+
+            }
+        return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 	}
 
 	/**

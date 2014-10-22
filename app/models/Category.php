@@ -3,7 +3,7 @@
 class Category extends \Eloquent {
 
 
-	protected $fillable = [];
+	protected $guarded = [];
 
     public function posts() {
         return $this->belongsToMany('Post', 'category_post');
