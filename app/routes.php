@@ -86,9 +86,14 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
         Route::group(['before'=>'csrf'], function () {
             // store + edit + delete
             Route::resource('post','PosController',['except'=>['index','create','update']]);
+            // update about us
             Route::post('account/aboutus/update/{id}',['as'=>'account-aboutus-update','uses'=>'AdminAboutUsController@update']);
+            // update contact us
             Route::post('account/contactus/update/{id}',['as'=>'account-contactus-update','uses'=>'AdminContactUsController@update']);
+            // store a post
             Route::post('account/post/store',['as'=>'account-post-store','uses'=>'AdminPostController@store']);
+            // delete a post
+            Route::delete('account/post/destroy/{id}','AdminPostController@destroy');
         });
 
 

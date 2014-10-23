@@ -15,7 +15,7 @@ class Post extends \Eloquent {
     // relation between Post & Category : a category has many posts + a post belongs to many category
     // pivot relation ManyToMany between Post and category
     public function categories() {
-        return $this->belongsToMany('Category','category_post', 'category_id');
+        return $this->belongsToMany('Category','category_post');
     }
 
 

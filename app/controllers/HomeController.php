@@ -15,12 +15,15 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+    public $post;
+    public function __construct(Post $post) {
+        $this->post = $post;
+    }
 
 	public function index()
 	{
 		// 1- to fetch last post added to the db
-        $post = Post::orderBy('created_at','DESC')->first();
+        $post = $this->post->with('categories')->orderBy('created_at','desc')->first();
         return View::make('site.home', compact('post'));
 
 	}

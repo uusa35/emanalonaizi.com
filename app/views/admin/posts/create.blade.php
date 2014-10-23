@@ -14,15 +14,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-
-
-                <form action="" class="dropzone" id="my-dropzone"></form>
-            </div>
-        </div>
-
-        {{ Form::open(['action' => 'AdminPostController@store', 'method' => 'post', 'class'=>'form','files'=>'true']) }}
-        <div class="row">
+            {{ Form::open(['action' => 'AdminPostController@store', 'method' => 'post', 'class'=>'form','files'=>'true']) }}
             <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="form-group">
                     {{ Form::label('title', Lang::get('general.admin.title')) }}

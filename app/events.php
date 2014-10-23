@@ -9,6 +9,5 @@
  * Admin Events
  * */
 
-if(Auth::user()->username === 'admin') {
+
     Event::listen('post.create','AdminPhotoController@create');
-}

@@ -7,23 +7,22 @@
 
         <div class="panel panel-success">
             <div class="panel-heading">
-                {{ $post->title }}
-
+                    {{ $post->title }}
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-2 col-sm-1 col-xs-4">
-                        <a href="#">{{ HTML::image('images/flower.png','image',array('class'=> 'img-responsive'))}}</a>
+                        <a href="#">{{ HTML::image('images/categories/'.$post->categories[0]->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
                     </div>
 
                     <div class="col-md-10">
                         <p style="width: 98%;">
-                            {{ $post->body }}
+                            {{ Str::limit($post->body, $limit = 250) }}
                         </p>
                     </div>
                 </div>
                 <div class="col-md-12 pull-left">
-                    <a class="btn-sm btn-mini btn-success pull-left" href="#"> Read More ..</a>
+                    <a class="btn-sm btn-mini btn-success pull-left" href="{{ URL::action('PostController@show',$post->id) }}"> {{ Lang::get('buttons.read_more') }}</a>
                 </div>
             </div>
         </div>

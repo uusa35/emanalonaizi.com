@@ -21,7 +21,7 @@ class AdminPostController extends \BaseController {
 	public function index()
 	{
 		//
-        $allPosts = $this->post->orderBy('created_at','DESC')->paginate(5);
+        $allPosts = $this->post->orderBy('created_at','DESC')->paginate(8);
         return View::make('admin.posts.index',['posts'=>$allPosts]);
 	}
 
@@ -51,21 +51,16 @@ class AdminPostController extends \BaseController {
         $validator = Validator::make(Input::all(),Post::$postRulesUpload);
         if($validator->passes()) {
             $images = Input::file('image');
-            $imageValidator = new PhotoValidator();
-            $imageValidator->PhotoExtentionValidator($images);
-            if($imageValidator) {
-                $this->post->create([
-                    'title'      => Input::get('title'),
-                    'body'       => Input::get('body'),
-                ]);
-
-                $createdPost = $this->post->orderBy('created_at','desc')->first();
-                DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
-                Event::fire('post.create',[$createdPost,$images]);
-            }
+            $this->post->create([
+                'title'      => Input::get('title'),
+                'body'       => Input::get('body'),
+            ]);
+            $createdPost = $this->post->orderBy('created_at','desc')->first();
+            DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
+            // plz go to app/events.php
+            Event::fire('post.create',[$createdPost,$images]);
             return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
-
-            }
+        }
         return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 	}
 
@@ -115,6 +110,14 @@ class AdminPostController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+
+        $deletedPost = $this->post->find(Input::get('post_id'));
+        $deletedPost = $deletedPost->delete();
+
+
+        return Redirect::back()->with(['messages'=>'success','successMsg'=>'deleted']);
+
+
 	}
 
 }

@@ -9,23 +9,12 @@ class AccountController extends \BaseController {
     }
 
     public function postSignUp () {
-        //{"_token":"pS3dKY2fnJxPycZWCz1KpLOTKanWEZESIRosbGR6","first_name":"","last_name":"","username":"","email":"","password":"","password_confirmation":"","mobile":"","instagram":"","facebook":"","twitter":""}
         $validator = Validator::make(Input::all(),User::$signupRules);
         if($validator->fails()) {
             return Redirect::back()->with('messages','error')->withErrors($validator);
         }
-/*        User::create([
-            'first_name'    => Input::get('first_name'),
-            'last_name'     => Input::get('last_name'),
-            'username'      => Input::get('username'),
-            'email'         => Input::get('email'),
-            'password'      => Hash::make(Input::get('password')),
-            'mobile'        => Input::get('mobile'),
-            'instagram'     => Input::get('instagram'),
-            'facebook'      => Input::get('facebook'),
-            'twitter'       => Input::get('twitter')
-        ]);*/
         $user = new User;
+        // filling all inputs within the User Eloquent Model in one single line
         $user->fill(Input::except('password_confirmation'));
         if($user->save()) {
         return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.signup_success')]);
@@ -40,14 +29,21 @@ class AccountController extends \BaseController {
     public function postForgotPassword() {
         $email = Input::get('email');
         $validator = Validator::make(Input::all(),User::$forgotPasswordRules );
+        // validate the form inputs
         if($validator->fails()) {
             return Redirect::back()->with('messages','error')->withErrors($validator);
         }
+        // fetching the email from DB
         $user = User::where('email','=',$email)->first();
+        if(!$user->username != 'admin') {
+            return Redirect::back()->with(['messages'=>'error','errorMsg'=>Lang::get('messages.error_msg_global')]);
+        }
+        // creating new password
         $new_password = Str::random($length = 5);
         $hashed_new = Hash::make($new_password);
         $user->update(['password'=>  $hashed_new]);
         if($user) {
+            // sending an email to user with the password
             Mail::queue('emails.forgotpassword',['username'=>$user->username, 'new_password'=> $new_password, 'email'=> $user->email], function($message) use ($user){
                 $message->to($user->email, $user->username)->subject('ForgotPassword | Eman Al-Onaizi Blog');
             });
@@ -65,12 +61,14 @@ class AccountController extends \BaseController {
         if($validator->fails()) {
             return Redirect::back()->withErrors($validator)->with('messages','error');
         }
+        // get the user
         $user = Auth::user();
         $old_password = Input::get('old_password');
         $new_password = Input::get('new_password');
-        /*return 'from db==== : '.$user->getAuthPassword().'<br> form pass : '.Hash::make(Input::get('old_password'));*/
-
+        // you can not grap the password from the db
+        // this function to check the password through hashing
         if(Hash::check($old_password, $user->getAuthPassword())) {
+            // hashing the new password
             $user->password = Hash::make($new_password);
             if($user->save()) {
             return Redirect::back()->with(['messages'=>'success','successMsg' => Lang::get('messages.reset_success')]);

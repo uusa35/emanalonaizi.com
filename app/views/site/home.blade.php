@@ -2,6 +2,7 @@
 @extends('site.layouts._one_col')
 
 @section('main')
+
     <div class="row">
         @include('site.partials.instagram')
         @include('site.partials.latestnews')

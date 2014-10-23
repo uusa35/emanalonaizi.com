@@ -26,13 +26,16 @@ class AdminPhotoController extends \BaseController {
 	 */
 	public function create($createdPost,$images)
 	{
-
         foreach($images as $image)  {
         $filename = $image->getClientOriginalName();
         $realpath = $image->getRealPath();
-        $createdPost->photos()->create(['path'=>$filename]);
-        $imgThumbnail = Image::make($realpath)->resize('300')->save('public/uploads/thumbnail/'.$filename);
-        $imageLarge = Image::make($realpath)->resize('600')->save('public/uploads/large/'.$filename);
+        $validator = Validator::make([$image],Photo::$uploadRules);
+            if($validator->fails()) {
+                return Redirect::back()->with(['messages'=>'error','errorMsg'=> 'upload failure ']);
+            }
+            $imgThumbnail = Image::make($realpath)->resize('200','200')->save('public/uploads/thumbnail/'.$filename);
+            $imageLarge = Image::make($realpath)->resize('500')->save('public/uploads/large/'.$filename);
+            $createdPost->photos()->create(['path'=>$filename]);
         }
 
 	}
