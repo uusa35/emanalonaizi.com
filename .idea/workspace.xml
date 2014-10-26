@@ -23,28 +23,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="latestnews.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/site/partials/latestnews.blade.php">
+      <file leaf-file-name="home.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="71" selection-start="773" selection-end="773" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="646">
+            <state line="7" column="44" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filters.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/filters.php">
+      <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/posts/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="46" selection-start="1227" selection-end="1227" vertical-scroll-proportion="-11.115385" vertical-offset="102" max-vertical-offset="2023">
+            <state line="66" column="54" selection-start="2675" selection-end="2675" vertical-scroll-proportion="-14.461538" vertical-offset="746" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <file leaf-file-name="navigation.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/site/partials/navigation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="918">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="697">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/site/auth/signin.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="34" selection-start="2068" selection-end="2068" vertical-scroll-proportion="1.0676328" vertical-offset="459" max-vertical-offset="1394">
               <folding />
             </state>
           </provider>
@@ -95,19 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostTableSeeder.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PostTableSeeder.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/database/seeds/PostTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="26" selection-start="234" selection-end="234" vertical-scroll-proportion="0.47775176" vertical-offset="0" max-vertical-offset="476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/posts/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="82" selection-start="1101" selection-end="1101" vertical-scroll-proportion="-10.038462" vertical-offset="164" max-vertical-offset="1207">
+            <state line="14" column="16" selection-start="258" selection-end="258" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
@@ -126,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/site/comments/show.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_10_09_143557_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/lang/ar/forms.php" />
         <option value="$PROJECT_DIR$/app/models/Aboutus.php" />
@@ -177,6 +176,7 @@
         <option value="$PROJECT_DIR$/app/database/seeds/AboutusTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/PhotoTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/PostTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/views/site/auth/signin.blade.php" />
       </list>
     </option>
   </component>
@@ -241,24 +241,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eman Al-Onaizi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -885,10 +867,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="1" width="1599" height="837" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33422104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33422104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -925,16 +907,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/uploads/thumbnail/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/large/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_ide_helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4378" column="66" selection-start="140210" selection-end="140210" vertical-scroll-proportion="0.37317073" vertical-offset="74171" max-vertical-offset="216852">
@@ -995,11 +967,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/Photo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="26" selection-start="146" selection-end="146" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="323" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/posts/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="124" selection-start="555" selection-end="555" vertical-scroll-proportion="-8.5" vertical-offset="51" max-vertical-offset="1275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap-responsive.css">
@@ -1078,13 +1045,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="10" selection-start="614" selection-end="614" vertical-scroll-proportion="17.576923" vertical-offset="1290" max-vertical-offset="1717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="44" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="289">
           <folding />
         </state>
       </provider>
@@ -1233,7 +1193,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/PostTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="234" selection-end="234" vertical-scroll-proportion="0.47775176" vertical-offset="0" max-vertical-offset="476">
+        <state line="14" column="16" selection-start="258" selection-end="258" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="44" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/posts/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="54" selection-start="2675" selection-end="2675" vertical-scroll-proportion="-14.461538" vertical-offset="746" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/site/partials/navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/site/auth/signin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="34" selection-start="2068" selection-end="2068" vertical-scroll-proportion="1.0676328" vertical-offset="459" max-vertical-offset="1394">
           <folding />
         </state>
       </provider>

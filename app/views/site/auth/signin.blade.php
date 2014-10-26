@@ -51,7 +51,7 @@
 
     <form class="form-inline" role="form">
     <div class="form-group">
-        @if(Auth::user()->id === 1)
+        @if(Auth::user()->username === 'admin')
             @if(Request::is('admin/*'))
             <a class="btn btn-primary btn-sm" href="{{ URL::to('/') }}">
                 <i class="fa fa-users fa-lg"></i> {{ Lang::get('buttons.user_area') }}
