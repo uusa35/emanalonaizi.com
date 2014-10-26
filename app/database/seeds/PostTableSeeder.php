@@ -10,7 +10,7 @@ class PostTableSeeder extends Seeder {
        //DB::table('posts')->truncate();
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 1) as $index)
 		{
 			Post::create([
                 'title'     => $faker->sentence(6),

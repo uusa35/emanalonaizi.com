@@ -9,14 +9,14 @@ class PhotoTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		/*foreach(range(1, 10) as $index)
 		{
 			Photo::create([
                 'post_id'   => $faker->randomDigit(1,10),
                 'path' => $faker->imageUrl('640', '480'),
 
 			]);
-		}
+		}*/
 	}
 
 }

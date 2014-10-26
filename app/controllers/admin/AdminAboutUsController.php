@@ -1,6 +1,6 @@
 <?php
 
-class AdminaboutusController extends \BaseController {
+class AdminAboutUsController extends \BaseController {
 
 
     public $aboutus;
@@ -63,10 +63,12 @@ class AdminaboutusController extends \BaseController {
 	public function edit()
 	{
 		//
+
         $aboutus = $this->aboutus->where('id' ,'=','1')->first();
         if($aboutus) {
             return View::make('admin.aboutus.edit', compact('aboutus'));
         }
+
         throw new NotFoundHttpException;
 	}
 

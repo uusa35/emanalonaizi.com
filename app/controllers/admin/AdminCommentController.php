@@ -15,7 +15,7 @@ class AdminCommentController extends \BaseController {
 	public function index()
 	{
 		//
-        $comments = $this->comment->orderBy('created_at','DESC')->paginate(5);
+        $comments = $this->comment->orderBy('created_at','DESC')->paginate(10);
         return View::make('admin.comments.index', compact('comments'));
 	}
 
@@ -87,6 +87,8 @@ class AdminCommentController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+        $deletedComment = $this->comment->find(Input::get('comment_id'));
+        return Redirect::back()->with(['messages'=>'success','successMsg'=> Lang::get('messages.delete')]);
 	}
 
 }

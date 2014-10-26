@@ -20,8 +20,14 @@
                 <tr >
                     <td>{{ $comment->id}}</td>
                     <td>{{ $comment->title}}</td>
-                    <td>{{ $comment->body }}</td>
-                    <td class="text-center"><button class="btn btn-danger btn-sm">{{ Lang::get('buttons.delete')}}</button></td>
+                    <td>{{ Str::limit($comment->body , 180) }}</td>
+                    <td class="text-center">
+                        {{ Form::open(['action'=>'AdminCommentController@destroy','method'=>'delete','id'=>'form-'.$comment->id]) }}
+                        {{ Form::hidden('comment_id',$comment->id) }}
+                        {{ Form::submit(Lang::get('buttons.delete'),['class'=>'delete btn btn-danger btn-sm ','comment'=>$comment->id]) }}
+                        {{ Form::close() }}
+
+                    </td>
 
 
                 </tr>
@@ -34,4 +40,22 @@
 
     </div>
 </div>
+@stop
+@section('javascript')
+@parent
+{{ HTML::script('js/jquery.confirm.js') }}
+<script type="text/javascript">
+
+    $(".delete").confirm({
+        text: "تأكيد حذف التعليق..",
+        title: "حذف التعليق",
+        confirm: function(button) {
+            var comment_id = button.attr('comment');
+            $('#form-'+comment_id).submit();
+        },
+        cancel: function(button) {
+            return false;
+        }
+    });
+</script>
 @stop

@@ -27,10 +27,10 @@ App::before(function($request)
         $view->with('categories' , $categories);
     });
     View::composer(['site.partials.footer'], function($view) {
-        if(!Cache::has('social_media')) {
-            Cache::put('social_media',Contactus::find(1),15);
+        if(!Cache::has('socialMedia')) {
+            Cache::put('socialMedia',Contactus::find(1),15);
         }
-        $socialMedia = Cache::get('social_media');
+        $socialMedia = Cache::get('socialMedia');
         $view->with('socialMedia',$socialMedia);
     });
 });

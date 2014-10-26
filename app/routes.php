@@ -94,6 +94,10 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
             Route::post('account/post/store',['as'=>'account-post-store','uses'=>'AdminPostController@store']);
             // delete a post
             Route::delete('account/post/destroy/{id}','AdminPostController@destroy');
+            // delete a user
+            Route::delete('account/user/destroy/{id}','AdminAccountController@destroy');
+            // delete a comment
+            Route::delete('account/comment/destroy/{id}','AdminCommentController@destroy');
         });
 
 

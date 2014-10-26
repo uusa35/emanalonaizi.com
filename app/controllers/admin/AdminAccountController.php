@@ -2,8 +2,7 @@
 
 class AdminAccountController extends \BaseController {
 
-
-
+    public $guarded = [];
     public $user;
     public function __construct(User $user) {
         $this->user = $user;
@@ -17,7 +16,7 @@ class AdminAccountController extends \BaseController {
 	public function index()
 	{
 		//
-        $users = $this->user->where('id','!=','1')->paginate(5);
+        $users = $this->user->paginate(10);
         return View::make('admin.users.index',compact('users'));
 	}
 
@@ -89,6 +88,8 @@ class AdminAccountController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+        $deleteUser = $this->user->find(Input::get('user_id'))->delete();
+        return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.delete')]);
 	}
 
 }

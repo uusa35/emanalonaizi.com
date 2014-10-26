@@ -23,14 +23,15 @@
             @foreach($posts as $post)
             <tr >
                 <td>{{ $post->id}}</td>
-                <td>{{ $post->title }}</td>
+                <td>{{ link_to_action('PostController@show',$post->title,$post->id) }}</td>
                 <td class="text-center"><button class="btn btn-info btn-sm">{{ Lang::get('buttons.edit') }}</button></td>
                 <td class="text-center">
                     {{ Form::open(['action'=>'AdminPostController@destroy','method'=>'delete','id'=>'form-'.$post->id]) }}
                         {{ Form::hidden('post_id',$post->id) }}
                         {{ Form::submit(Lang::get('buttons.delete'),['class'=>'delete btn btn-danger btn-sm ','post'=>$post->id]) }}
                     {{ Form::close() }}
-                    </a></td>
+
+                    </td>
 
 
             </tr>
@@ -49,19 +50,17 @@
     @parent
     {{ HTML::script('js/jquery.confirm.js') }}
 <script type="text/javascript">
-/*
+
     $(".delete").confirm({
         text: "تأكيـــد حــذف المقالة ..",
         title: "حــذف المقال",
         confirm: function(button) {
             var post_id = button.attr('post');
-            *//*window.location.href = 'account/post/destroy/'+post_id;*//*
-           return true;
-
+            $('#form-'+post_id).submit();
         },
         cancel: function(button) {
             return false;
         }
-    });*/
+    });
 </script>
 @stop

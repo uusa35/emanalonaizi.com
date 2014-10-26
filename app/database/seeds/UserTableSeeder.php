@@ -21,18 +21,6 @@ class UserTableSeeder extends Seeder {
                 'instagram' => 'myinstagram',
                 'active'    => true,
 			]);
-            User::create([
-                'username' => 'user',
-                'password' => Hash::make('user'),
-                'email' => 'usama.ahmed@live.com',
-                'first_name' => 'افضل',
-                'last_name' => 'عمرو',
-                'twitter' => 'mytwitter',
-                'facebook' => 'myfacebook',
-                'instagram' => 'myinstagram',
-                'active'    => true,
-            ]);
-
 	}
 
 }
