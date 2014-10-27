@@ -20,16 +20,16 @@ return array(
 
 	'connections' => array(
 
-		'mysql' => array(
-			'driver'    => 'mysql',
+        'mysql' => array(
+            'driver'    => 'mysql',
             'host'     => 'localhost',
             'database' => 'eman',
-            'username' => 'emanalonaizi',
-            'password' => 'emanalonaizi_db_user',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),
+            'username' => 'root',
+            'password' => '',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

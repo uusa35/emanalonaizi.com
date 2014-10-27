@@ -33,8 +33,8 @@ class AdminPhotoController extends \BaseController {
             if($validator->fails()) {
                 return Redirect::back()->with(['messages'=>'error','errorMsg'=> 'upload failure ']);
             }
-            $imgThumbnail = Image::make($realpath)->resize('200','200')->save('public/uploads/thumbnail/'.$filename);
-            $imageLarge = Image::make($realpath)->resize('500')->save('public/uploads/large/'.$filename);
+            $imgThumbnail = Image::make($realpath)->resize('200','200')->save(public_path('uploads/thumbnail/'.$filename));
+            $imageLarge = Image::make($realpath)->resize('500','500')->save(public_path('uploads/large/'.$filename));
             $createdPost->photos()->create(['path'=>$filename]);
         }
 

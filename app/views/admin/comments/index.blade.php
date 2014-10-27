@@ -9,16 +9,19 @@
         <!-- Table -->
         <div class="col-md-12">
             <table class="table table-bordered table-hovered table-striped table-responsive">
-                <thead class="text-center">
+                <thead class="text-center small">
                 <th>{{ Lang::get('general.id') }}</th>
+                <th>{{ Lang::get('general.username') }}</th>
                 <th>{{ Lang::get('general.title') }}</th>
                 <th>{{ Lang::get('general.body') }}</th>
                 <th>{{ Lang::get('buttons.delete') }}</th>
                 </thead>
                 <tbody>
+
                 @foreach($comments as $comment)
                 <tr >
                     <td>{{ $comment->id}}</td>
+                    <td>{{ $comment->user['username'] }}</td>
                     <td>{{ $comment->title}}</td>
                     <td>{{ Str::limit($comment->body , 180) }}</td>
                     <td class="text-center">

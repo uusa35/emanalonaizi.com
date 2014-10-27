@@ -15,7 +15,11 @@ class AccountController extends \BaseController {
         }
         $user = new User;
         // filling all inputs within the User Eloquent Model in one single line
+        // note (*) a user must be active in order to be able to login - thats how i made it
+        Input::merge(['password'=> Hash::make(Input::get('password'))]);
         $user->fill(Input::except('password_confirmation'));
+        //  by default the user is activated
+        $user->active = '1';
         if($user->save()) {
         return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.signup_success')]);
         }
@@ -89,7 +93,7 @@ class AccountController extends \BaseController {
                 return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.signin_success')]);
             }
         }
-        return Redirect::back()->with(['messages'=>'error','errorMsg'=> Lang::get('messages.signin_success')])->withErrors($validator);
+        return Redirect::back()->with(['messages'=>'error','errorMsg'=> Lang::get('messages.signin_error')])->withErrors($validator);
     }
 
 

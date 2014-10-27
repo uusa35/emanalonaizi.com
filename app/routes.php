@@ -82,6 +82,8 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
         Route::get('account/aboutus',['as'=>'account-aboutus','uses'=>'AdminAboutUsController@edit']);
         // create new post
         Route::get('account/post/create',['as'=>'account-post-create','uses'=>'AdminPostController@create']);
+        // update existing post
+        Route::get('account/post/edit/{id}',['as'=>'account-post-edit','uses'=>'AdminPostController@edit']);
 
         Route::group(['before'=>'csrf'], function () {
             // store + edit + delete
@@ -98,6 +100,10 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
             Route::delete('account/user/destroy/{id}','AdminAccountController@destroy');
             // delete a comment
             Route::delete('account/comment/destroy/{id}','AdminCommentController@destroy');
+            // update user status {active or not active}
+            Route::post('account/user/status/{id}','AdminAccountController@update');
+            // update a post
+            Route::post('account/post/update/{id}','AdminPostController@update');
         });
 
 

@@ -58,7 +58,9 @@ class AdminPostController extends \BaseController {
             $createdPost = $this->post->orderBy('created_at','desc')->first();
             DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
             // plz go to app/events.php
-            Event::fire('post.create',[$createdPost,$images]);
+            if(Input::file('image')) {
+                Event::fire('post.create',[$createdPost,$images]);
+            }
             return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
         }
         return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
@@ -86,6 +88,8 @@ class AdminPostController extends \BaseController {
 	public function edit($id)
 	{
 		//
+        $post = $this->post->find($id)->with('categories')->first();
+        return View::make('admin.posts.edit', compact('post'));
 	}
 
 	/**

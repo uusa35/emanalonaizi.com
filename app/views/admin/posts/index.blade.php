@@ -24,7 +24,7 @@
             <tr >
                 <td>{{ $post->id}}</td>
                 <td>{{ link_to_action('PostController@show',$post->title,$post->id) }}</td>
-                <td class="text-center"><button class="btn btn-info btn-sm">{{ Lang::get('buttons.edit') }}</button></td>
+                <td class="text-center"><a  class="delete btn btn-info btn-sm" href="{{ URL::action('AdminPostController@edit',$post->id) }}">{{ Lang::get('buttons.edit') }}</a></td>
                 <td class="text-center">
                     {{ Form::open(['action'=>'AdminPostController@destroy','method'=>'delete','id'=>'form-'.$post->id]) }}
                         {{ Form::hidden('post_id',$post->id) }}
@@ -52,11 +52,11 @@
 <script type="text/javascript">
 
     $(".delete").confirm({
-        text: "تأكيـــد حــذف المقالة ..",
-        title: "حــذف المقال",
+        text: "are you sure ?",
+        title: "Confirmation",
         confirm: function(button) {
             var post_id = button.attr('post');
-            $('#form-'+post_id).submit();
+            window.location.href = button.attr('href');
         },
         cancel: function(button) {
             return false;

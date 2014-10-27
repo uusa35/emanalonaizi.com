@@ -76,6 +76,14 @@ class AdminAccountController extends \BaseController {
 	public function update($id)
 	{
 		//
+            // boolean 1 or 0
+            $status = Input::get('status');
+            $activateUser = $this->user->find(Input::get('user_id'));
+            $activateUser->active = Input::get('status');
+            if($activateUser->update()) {
+                return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.activated_success')]);
+            }
+            return Redirect::back()->with(['messages'=>'error','errorMsg'=>Lang::get('messages.activated_success')]);
 	}
 
 	/**
@@ -91,5 +99,9 @@ class AdminAccountController extends \BaseController {
         $deleteUser = $this->user->find(Input::get('user_id'))->delete();
         return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.delete')]);
 	}
+
+    public function deactivateUser() {
+
+    }
 
 }

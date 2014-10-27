@@ -82,8 +82,15 @@
                 <!-- end of body -->
             </div>
             <hr>
-
-           @include('site.comments.show')
+            @if(Auth::user()->active === 1)
+                @include('site.comments.show')
+            @else
+            <div class="alert alert-danger alert-block">
+                <ul>
+                    <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>
+                </ul>
+            </div>
+            @endif
 
         </div>
     </div>

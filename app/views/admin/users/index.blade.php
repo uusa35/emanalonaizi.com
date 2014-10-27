@@ -20,12 +20,18 @@
                         <td>{{ $user->id}}</td>
                         <td>{{ $user->username }}</td>
                         <td class="text-center">
-                        {{ Form::open(['action'=>'AdminAccountController@destroy','method'=>'delete','id'=>'form-'.$user->id]) }}
+                        {{ Form::open(['action'=>'AdminAccountController@update','method'=>'post','id'=>'form-'.$user->id]) }}
                         {{ Form::hidden('user_id',$user->id) }}
-                        @if($user->id ===1)
-                        {{ Form::submit(Lang::get('buttons.delete'),['class'=>'disabled btn btn-danger btn-sm ','user_id'=>$user->id]) }}
+                        @if($user->id === 1)
+                        {{ Form::submit(Lang::get('buttons.activate'),['class'=>'disabled btn btn-danger btn-sm ','user_id'=>$user->id]) }}
                         @else
-                        {{ Form::submit(Lang::get('buttons.delete'),['class'=>'delete  btn btn-danger btn-sm ','user_id'=>$user->id]) }}
+                            @if($user->active)
+                                {{ Form::hidden('status',0) }}
+                                {{ Form::submit(Lang::get('buttons.deactivate'),['class'=>'delete  btn btn-danger btn-sm ','user_id'=>$user->id,'message'=>'الغاء التفعيل']) }}
+                            @else
+                                {{ Form::hidden('status',1) }}
+                                {{ Form::submit(Lang::get('buttons.activate'),['class'=>'delete  btn btn-primary btn-sm ','user_id'=>$user->id, 'message'=>'إعادة التفعيل']) }}
+                            @endif
                         @endif
                         {{ Form::close() }}
                         </td>
@@ -47,8 +53,8 @@
 <script type="text/javascript">
 
     $(".delete").confirm({
-        text: "تأكيد حــذف المستخدم",
-        title: "حــذف المستخدم من النظام",
+        text: $(this).attr('message'),
+        title: $(this).attr('message'),
         confirm: function(button) {
             var user_id = button.attr('user_id');
             $('#form-'+user_id).submit();

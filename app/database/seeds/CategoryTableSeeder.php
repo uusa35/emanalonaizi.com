@@ -7,15 +7,31 @@ class CategoryTableSeeder extends Seeder {
 
 	public function run()
 	{
-        //DB::table('categories')->truncate();
-		$faker = Faker::create();
+        DB::table('categories')->truncate();
+		/*$faker = Faker::create();*/
+        $categories_list = [
+            'صباحات',
+            'شكرا',
+            'حيادية',
+            'مقالات',
+            'مقالات مختارة',
+            'العالم ثقافات',
+            'إلتقط الجمال',
+            'حقائق',
+            'نحو وبلاغة',
+            'هنا ملعبك'
+            ];
 
-		foreach(range(1, 10) as $index)
+		foreach($categories_list as $category)
 		{
 			Category::create([
-                'name' => $faker->country
+                'name' => $category
 			]);
 		}
 	}
+    public function down()
+    {
+        Schema::drop('category');
+    }
 
 }

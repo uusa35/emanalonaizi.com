@@ -22,7 +22,9 @@ return array(
     'reset_password'    => 'تغير كلمة المرور',
     'edit'              => 'تعديل',
     'delete'            => 'حذف',
-    'add_new_post'      => 'إضافة مقال جديد'
+    'add_new_post'      => 'إضافة مقال جديد',
+    'deactivate'        => 'إلغاء التفعيل',
+    'activate'          => 'تفعيل'
 
 
 );
