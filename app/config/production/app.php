@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => true,
-    'url' => 'http://emanalonaizi.com'
+	'debug' => false,
+
 
 );

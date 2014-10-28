@@ -1,7 +1,8 @@
 @extends('admin.layouts.home')
 @scection('styles')
 @parent
-{{ HTML::style('js/html/style.css') }}
+
+    {{ HTML::style('js/html/style.css') }}
 
 @stop
 @section('content')
@@ -14,6 +15,26 @@
     </div>
     <div class="panel-body">
         <div class="row">
+            @if(count($post->photos) === 0)
+            <div class="col-md-8 text-center col-md-offset-2">
+                <div class="alert alert-danger" role="alert"><i class="fa fa-fw fa-ban on fa-camera"></i>{{ Lang::get('general.no_photos') }}</div>
+            </div>
+
+            @else
+            <div class="col-md-12" id="links">
+                <!--return $post->comments[0]->body;-->
+
+                @for($i=0;$i < count($post->photos);$i++)
+                <div class="col-xs-6 col-md-3">
+                    <a href="{{ URL::to('/uploads/large/'.$post->photos[$i]->path)}}" data-gallery>
+                        {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
+                    </a>
+                </div>
+                @endfor
+            </div>
+            @endif
+        </div>
+        <div class="row">
             {{ Form::Model($post, ['action' => ['AdminPostController@update', $post->id], 'class'=>'form','files'=>'true']) }}
             <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="form-group">
@@ -25,7 +46,7 @@
                 <div class="form-group">
                     {{ Form::label('categories', Lang::get('general.admin.category')) }}
 
-                    {{ Form::select('category', $categories, NULL,['class'=>'form-control input-lg']) }}
+                    {{ Form::select('category', $categoriesList, $categorySelected->id,['class'=>'form-control input-lg']) }}
                 </div>
             </div>
             <div class="col-xs-12 col-md-12">
@@ -52,7 +73,8 @@
 @stop
 @section('javascript')
 @parent
-{{ HTML::script('http://js.nicedit.com/nicEdit-latest.js') }}
+
+    {{ HTML::script('http://js.nicedit.com/nicEdit-latest.js') }}
 
 
 <script type="text/javascript">

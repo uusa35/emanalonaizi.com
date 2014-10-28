@@ -23,7 +23,11 @@
                     <a id="eventsTab" class="dropdown-toggle" data-toggle="dropdown" href="#" >{{ Lang::get('nav.field') }}  </a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach($categories as $category)
-                        <li><a href="{{ URL::to('category',$category->id) }}" >{{ $category->name }}</a></li>
+                            @if($category->id === 10)
+                            <li><a href="{{ URL::action('PostController@show',0) }}" >{{ $category->name }}</a></li>
+                            @else
+                            <li><a href="{{ URL::to('category',$category->id) }}" >{{ $category->name }}</a></li>
+                            @endif
                         @endforeach
 
                     </ul>

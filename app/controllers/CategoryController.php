@@ -4,8 +4,10 @@ class CategoryController extends \BaseController {
 
 
     public $category;
-    public function __construct(Category $category) {
+    public $comment;
+    public function __construct(Category $category, Comment $comment) {
         $this->category = $category;
+        $this->comment = $comment;
     }
     /**
 	 * Display a listing of the resource.
@@ -16,6 +18,7 @@ class CategoryController extends \BaseController {
 	public function index($categoryId)
 	{
 		//
+
         $category = $this->category->find($categoryId);
         // eagger loading
         $posts = $category->posts()->orderBy('created_at','desc')->with('photos')->paginate(10);

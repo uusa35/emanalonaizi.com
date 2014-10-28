@@ -10,32 +10,46 @@
         </div>
 
     </div>
-    <hr>
-    @for($i=0;$i < count($post->comments);$i++)
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="col-md-5 pull-left">
-                {{ $post->comments[$i]->user['first_name'].' '.$post->comments[$i]->user['last_name']}}
-                <i class="fa fa-clock-o"></i>
 
 
+    @if($post->comments())
+        @foreach($post->comments()->paginate(5) as $comment)
 
-                {{ $post->comments[$i]->created_at}}
-                <i class="fa fa-comments"></i>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
 
-            </div>
-            <div class="col-md-7 pull-right">
-                <p>{{ $post->comments[$i]->title}}</p>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p>{{ $post->comments[$i]->body }}</p>
+                <div class="row panel panel-default">
+                    <div class="col-md-12 panel-heading">
+
+                        <div class="col-md-5 pull-left text-left">
+                            {{ $comment->user->first_name.' '.$comment->user->last_name }}
+                            <i class="fa fa-clock-o"></i>
+                            {{ $comment->created_at}}
+                            <i class="fa fa-comments"></i>
+
+                        </div>
+                        <div class="col-md-7 pull-right">
+                            <p>{{ $comment->title}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>{{ $comment->body }}</p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
 
-    </div>
-    <hr>
-    @endfor
+        @endforeach
+        <div class="text-center">
+
+    {{ $post->comments()->paginate(5)->links() }}
+
+        </div>
+@endif
+
     @include('site.comments.create')

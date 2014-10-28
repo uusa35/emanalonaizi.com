@@ -34,7 +34,7 @@ class AdminPostController extends \BaseController {
 	public function create()
 	{
 		//
-        $categories = $this->category->all();
+        $categories = $this->category->get();
         $categories = $categories->lists('name', 'id');
         return View::make('admin.posts.create', compact('categories'));
 	}
@@ -88,8 +88,12 @@ class AdminPostController extends \BaseController {
 	public function edit($id)
 	{
 		//
-        $post = $this->post->find($id)->with('categories')->first();
-        return View::make('admin.posts.edit', compact('post'));
+        $post = $this->post->find($id);
+        $categoriesList = $this->category->get();
+        $categorySelected = $this->post->find($id)->categories()->first();
+        $categoriesList = $categoriesList->lists('name', 'id');
+
+        return View::make('admin.posts.edit', compact('post','categorySelected','categoriesList'));
 	}
 
 	/**

@@ -24,14 +24,15 @@ return array(
             'driver'    => 'mysql',
             'host'     => 'localhost',
             'database' => 'eman',
-            'username' => 'root',
-            'password' => '',
+            'username' => 'emanalonaizi',
+            'password' => 'emanalonaizi_db_user',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ),
 
-		'pgsql' => array(
+
+        'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
 			'database' => 'eman',
