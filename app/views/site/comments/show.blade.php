@@ -10,7 +10,6 @@
         </div>
 
     </div>
-
     @if($comments)
         @foreach($comments as $comment)
         <div class="row">
@@ -49,4 +48,5 @@
 
         </div>
 @endif
+
     @include('site.comments.create')

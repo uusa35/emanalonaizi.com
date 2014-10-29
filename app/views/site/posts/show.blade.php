@@ -54,23 +54,25 @@
                 </div>
             </div>
             <div class="row">
-                @if(count($post->photos) === 0)
+                @if($post->photos)
+                    @if(count($post->photos) === 0)
                     <div class="col-md-8 text-center col-md-offset-2">
                         <div class="alert alert-danger" role="alert"><i class="fa fa-fw fa-ban on fa-camera"></i>{{ Lang::get('general.no_photos') }}</div>
                     </div>
 
-                @else
-                    <div class="col-md-12" id="links">
-                        <!--return $post->comments[0]->body;-->
+                    @else
+                        <div class="col-md-12" id="links">
+                            <!--return $post->comments[0]->body;-->
 
-                        @for($i=0;$i < count($post->photos);$i++)
-                        <div class="col-xs-6 col-md-3">
-                        <a href="{{ URL::to('/uploads/large/'.$post->photos[$i]->path)}}" data-gallery>
-                            {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
-                        </a>
+                            @for($i=0;$i < count($post->photos);$i++)
+                            <div class="col-xs-6 col-md-3">
+                            <a href="{{ URL::to('/uploads/large/'.$post->photos[$i]->path)}}" data-gallery>
+                                {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
+                            </a>
+                            </div>
+                            @endfor
                         </div>
-                        @endfor
-                    </div>
+                    @endif
                 @endif
 
             </div>
@@ -83,9 +85,9 @@
             </div>
             <hr>
            @endif
-            @if(Auth::user()->active)
-                @include('site.comments.show')
-            @else
+
+            @include('site.comments.show')
+            @if(!Auth::user()->active)
             <div class="alert alert-danger alert-block">
                 <ul>
                     <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>

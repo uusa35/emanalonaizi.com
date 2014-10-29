@@ -5,8 +5,10 @@ class PostController extends \BaseController {
 
 
     public $comment;
-    public function __construct(Comment $comment) {
+    public $post;
+    public function __construct(Post $post,Comment $comment) {
         $this->comment = $comment;
+        $this->post = $post;
     }
 
 	/**
@@ -55,7 +57,7 @@ class PostController extends \BaseController {
 	{
 		//
 		// this will depend on comments and photos :: relation ship to be made
-        $post = Post::find($id);
+        $post = $this->post->find($id);
         $post = $post->load('photos');
         $comments = $this->comment->where('post_id','=',$id)->with('user')->paginate(5);
         return View::make('site.posts.show',compact('post','comments'));
@@ -98,7 +100,7 @@ class PostController extends \BaseController {
 	}
 
     public function getCommentPage($categoryId) {
-        $post = Post::where('id','=','1')->first();;
+        $post = $this->post->where('id','=','1')->first();
         $comments = $this->comment->where('post_id','=','1')->with('user')->paginate(8);
         return View::make('site.posts.show',compact('post','comments'));
 
