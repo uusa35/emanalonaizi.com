@@ -9,8 +9,6 @@ class ContactusTableSeeder extends Seeder {
 	{
         DB::table('contactus')->truncate();
 		$faker = Faker::create();
-
-
 			Contactus::create([
                 'name' => 'Usama Ahmed',
                 'address'       => $faker->address,

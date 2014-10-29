@@ -3,7 +3,7 @@
     @foreach($categories as $category)
         <div class="col-md-offset-{{ rand(1,2)}} col-md-2 col-sm-3 col-xs-4" >
             @if($category->id === 10)
-            <a href="{{ action('PostController@show', 0) }}">{{ HTML::image('images/categories/'.$category->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
+            <a href="{{ action('PostController@getCommentPage', $category->id) }}">{{ HTML::image('images/categories/'.$category->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
             @else
             <a href="{{ action('CategoryController@index', $category->id) }}">{{ HTML::image('images/categories/'.$category->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
             @endif

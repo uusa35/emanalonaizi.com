@@ -3,6 +3,12 @@
 class PostController extends \BaseController {
 
 
+
+    public $comment;
+    public function __construct(Comment $comment) {
+        $this->comment = $comment;
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /post
@@ -50,8 +56,9 @@ class PostController extends \BaseController {
 		//
 		// this will depend on comments and photos :: relation ship to be made
         $post = Post::find($id);
-        $post = $post->load('photos', 'comments','comments.user');
-        return View::make('site.posts.show',['post'=> $post]);
+        $post = $post->load('photos');
+        $comments = $this->comment->where('post_id','=',$id)->with('user')->paginate(5);
+        return View::make('site.posts.show',compact('post','comments'));
 	}
 
 	/**
@@ -90,7 +97,10 @@ class PostController extends \BaseController {
 		//
 	}
 
+    public function getCommentPage($categoryId) {
+        $post = Post::where('id','=','1')->first();;
+        $comments = $this->comment->where('post_id','=','1')->with('user')->paginate(8);
+        return View::make('site.posts.show',compact('post','comments'));
 
-
-
+    }
 }

@@ -11,10 +11,8 @@
 
     </div>
 
-
-    @if($post->comments())
-        @foreach($post->comments()->paginate(5) as $comment)
-
+    @if($comments)
+        @foreach($comments as $comment)
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
 
@@ -47,9 +45,8 @@
         @endforeach
         <div class="text-center">
 
-    {{ $post->comments()->paginate(5)->links() }}
+    {{ $comments->links() }}
 
         </div>
 @endif
-
     @include('site.comments.create')

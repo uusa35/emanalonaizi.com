@@ -21,20 +21,19 @@
         </thead>
             <tbody>
             @foreach($posts as $post)
+            @if($post->id != 1)
             <tr >
                 <td>{{ $post->id}}</td>
                 <td>{{ link_to_action('PostController@show',$post->title,$post->id) }}</td>
-                <td class="text-center"><a  class="delete btn btn-info btn-sm" href="{{ URL::action('AdminPostController@edit',$post->id) }}">{{ Lang::get('buttons.edit') }}</a></td>
+                <td class="text-center"><a  class="edit btn btn-info btn-sm" href="{{ URL::action('AdminPostController@edit',$post->id) }}">{{ Lang::get('buttons.edit') }}</a></td>
                 <td class="text-center">
                     {{ Form::open(['action'=>'AdminPostController@destroy','method'=>'delete','id'=>'form-'.$post->id]) }}
                         {{ Form::hidden('post_id',$post->id) }}
                         {{ Form::submit(Lang::get('buttons.delete'),['class'=>'delete btn btn-danger btn-sm ','post'=>$post->id]) }}
                     {{ Form::close() }}
-
                     </td>
-
-
             </tr>
+            @endif
             @endforeach
 
             </tbody>
@@ -52,6 +51,17 @@
 <script type="text/javascript">
 
     $(".delete").confirm({
+        text: "are you sure ?",
+        title: "Confirmation",
+        confirm: function(button) {
+            var post_id = button.attr('post');
+            $('#form-'+post_id).submit();
+        },
+        cancel: function(button) {
+            return false;
+        }
+    });
+    $(".edit").confirm({
         text: "are you sure ?",
         title: "Confirmation",
         confirm: function(button) {

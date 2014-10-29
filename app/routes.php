@@ -19,7 +19,7 @@ Route::resource('post','PostController',['only'=>'show']);
 Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
 Route::get('/contactus', ['as'=>'contactus', 'uses'=>'ContactUsController@index']);
 Route::post('/contactus/email', ['as'=>'contactus-email', 'uses'=>'ContactUsController@contact']);
-
+Route::get('category/comment/{id}', ['as'=>'category-comment','uses'=>'PostController@getCommentPage']);
 
 
 /*
@@ -31,6 +31,7 @@ Route::group(['before'=>'guest'], function () {
     Route::get('account/signin',['as'=>'account-signin','uses'=>'AccountController@getSignIn']);
     Route::get('account/forgotpassword',['as'=>'account-forgot','uses'=>'AccountController@getForgotPassword']);
     Route::get('account/reset',['as'=>'account-reset','uses'=>'AccountController@getResetPassword']);
+
 
 
     Route::group(['before'=>'csrf'], function () {
@@ -100,6 +101,8 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
             Route::delete('account/user/destroy/{id}','AdminAccountController@destroy');
             // delete a comment
             Route::delete('account/comment/destroy/{id}','AdminCommentController@destroy');
+            // delete a photo from the post.edit form
+            Route::delete('account/photo/destroy/{id}','AdminPhotoController@destroy');
             // update user status {active or not active}
             Route::post('account/user/status/{id}','AdminAccountController@update');
             // update a post

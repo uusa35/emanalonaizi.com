@@ -30,7 +30,7 @@
             </div>
             <div class="col-xs-12 col-md-12">
                 <div class="form-group">
-                    {{ Form::label('title', Lang::get('general.admin.title')) }}
+                    {{ Form::label('title', Lang::get('general.admin.photos')) }}
                     {{ Form::file('image[]',['class'=>'form-control input-lg','multiple']) }}
                 </div>
             </div>

@@ -82,9 +82,21 @@ class AdminPhotoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($updatedPost,$images)
 	{
 		//
+        foreach($images as $image)  {
+            $filename = $image->getClientOriginalName();
+            $realpath = $image->getRealPath();
+            $validator = Validator::make([$image],Photo::$uploadRules);
+            if($validator->fails()) {
+                return Redirect::back()->with(['messages'=>'error','errorMsg'=> 'upload failure ']);
+            }
+            $imgThumbnail = Image::make($realpath)->resize('200','200')->save(public_path('uploads/thumbnail/'.$filename));
+            $imageLarge = Image::make($realpath)->resize('500','500')->save(public_path('uploads/large/'.$filename));
+            $updatedPost->photos()->update(['path'=>$filename]);
+        }
+
 	}
 
 	/**
@@ -97,6 +109,11 @@ class AdminPhotoController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+        $deletedPhoto = $this->photo->find($id);
+        if($deletedPhoto->delete()) {
+        return Redirect::back()->with(['message'=>'success','successMsg'=>'Photo has been deleted successfully']);
+        }
+
 	}
 
 }

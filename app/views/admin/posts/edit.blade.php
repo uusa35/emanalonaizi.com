@@ -15,7 +15,8 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            @if(count($post->photos) === 0)
+
+            @if(count($post->photos) < 1)
             <div class="col-md-8 text-center col-md-offset-2">
                 <div class="alert alert-danger" role="alert"><i class="fa fa-fw fa-ban on fa-camera"></i>{{ Lang::get('general.no_photos') }}</div>
             </div>
@@ -26,9 +27,11 @@
 
                 @for($i=0;$i < count($post->photos);$i++)
                 <div class="col-xs-6 col-md-3">
-                    <a href="{{ URL::to('/uploads/large/'.$post->photos[$i]->path)}}" data-gallery>
+                        {{ Form::open(['action'=>['AdminPhotoController@destroy',$post->photos[$i]->id],'method'=>'DELETE', 'id'=>'form-'.$post->photos[$i]->id]) }}
+                            {{ Form::hidden('image_id',$post->photos[$i]->id) }}
+                        <i class="remove fa fa-remove fa-lg" id="{{ $post->photos[$i]->id }}"></i>
+                         {{ Form::close() }}
                         {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
-                    </a>
                 </div>
                 @endfor
             </div>
@@ -73,10 +76,7 @@
 @stop
 @section('javascript')
 @parent
-
     {{ HTML::script('http://js.nicedit.com/nicEdit-latest.js') }}
-
-
 <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() }); // convert all text areas to rich text editor on that page
 
@@ -87,6 +87,13 @@
     bkLib.onDomLoaded(function() {
         new nicEditor({fullPanel : true}).panelInstance('area2');
     }); // convert text area with id area2 to rich text editor with full panel.
+
+    // remove btn for each image
+    $('.remove').on('click', function() {
+       photoId = $(this).attr('id');
+        $('#form-'+photoId).submit();
+        //
+    });
 </script>
 
 @stop

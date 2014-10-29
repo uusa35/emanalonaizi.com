@@ -22,9 +22,6 @@
                         <td class="text-center">
                         {{ Form::open(['action'=>'AdminAccountController@update','method'=>'post','id'=>'form-'.$user->id]) }}
                         {{ Form::hidden('user_id',$user->id) }}
-                        @if($user->id === 1)
-                        {{ Form::submit(Lang::get('buttons.activate'),['class'=>'disabled btn btn-danger btn-sm ','user_id'=>$user->id]) }}
-                        @else
                             @if($user->active)
                                 {{ Form::hidden('status',0) }}
                                 {{ Form::submit(Lang::get('buttons.deactivate'),['class'=>'delete  btn btn-danger btn-sm ','user_id'=>$user->id,'message'=>'الغاء التفعيل']) }}
@@ -32,7 +29,6 @@
                                 {{ Form::hidden('status',1) }}
                                 {{ Form::submit(Lang::get('buttons.activate'),['class'=>'delete  btn btn-primary btn-sm ','user_id'=>$user->id, 'message'=>'إعادة التفعيل']) }}
                             @endif
-                        @endif
                         {{ Form::close() }}
                         </td>
                     </tr>

@@ -12,7 +12,7 @@
             <h3>{{ $post->title }}</h3>
         </div>
         <div class="panel-body">
-            @if($post->id != 0)
+            @if($post->id != 1)
             <!--Gallery Buttons -->
             <div class="row">
                 <div class="col-md-12">
@@ -83,15 +83,15 @@
             </div>
             <hr>
            @endif
-                @if(Auth::user()->active === 1)
-                    @include('site.comments.show')
-                @else
-                <div class="alert alert-danger alert-block">
-                    <ul>
-                        <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>
-                    </ul>
-                </div>
-                @endif
+            @if(Auth::user()->active)
+                @include('site.comments.show')
+            @else
+            <div class="alert alert-danger alert-block">
+                <ul>
+                    <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>
+                </ul>
+            </div>
+            @endif
         </div>
     </div>
 @stop

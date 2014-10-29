@@ -11,3 +11,4 @@
 
 
     Event::listen('post.create','AdminPhotoController@create');
+    Event::listen('post.update','AdminPhotoController@update');

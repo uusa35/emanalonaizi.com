@@ -89,10 +89,12 @@ class AdminPostController extends \BaseController {
 	{
 		//
         $post = $this->post->find($id);
+        // get all categories from the DB
         $categoriesList = $this->category->get();
-        $categorySelected = $this->post->find($id)->categories()->first();
+        // get the related category for the edited post
+        $categorySelected = $post->categories()->first();
+        // list all categories
         $categoriesList = $categoriesList->lists('name', 'id');
-
         return View::make('admin.posts.edit', compact('post','categorySelected','categoriesList'));
 	}
 
@@ -106,6 +108,26 @@ class AdminPostController extends \BaseController {
 	public function update($id)
 	{
 		//
+        $validator = Validator::make(Input::all(),Post::$postRulesUpload);
+        if($validator->passes()) {
+            $images = Input::file('image');
+            $post = $this->post->where('id','=',$id)->update([
+                'title'      => Input::get('title'),
+                'body'       => Input::get('body'),
+            ]);
+           if($post) {
+               $updatedPost = $this->post->find($id);
+                DB::table('category_post')->where('post_id','=',$id)->update(['category_id'=>Input::get('category')]);
+                // plz go to app/events.php
+                if($images[0]) {
+                    Event::fire('post.create',[$updatedPost,$images]);
+                }
+           }
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post updated with Images Uploaded :)']);
+        }
+        return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
+
+
 	}
 
 	/**
@@ -118,11 +140,8 @@ class AdminPostController extends \BaseController {
 	public function destroy($id)
 	{
 		//
-
         $deletedPost = $this->post->find(Input::get('post_id'));
         $deletedPost = $deletedPost->delete();
-
-
         return Redirect::back()->with(['messages'=>'success','successMsg'=>'deleted']);
 
 
