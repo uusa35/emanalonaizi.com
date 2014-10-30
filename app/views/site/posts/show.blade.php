@@ -87,13 +87,7 @@
            @endif
 
             @include('site.comments.show')
-            @if(!Auth::user()->active)
-            <div class="alert alert-danger alert-block">
-                <ul>
-                    <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>
-                </ul>
-            </div>
-            @endif
+
         </div>
     </div>
 @stop

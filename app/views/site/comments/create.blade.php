@@ -37,6 +37,12 @@
         </div>
 
     </div>
+    @else
+        <div class="col-md-8 col-md-offset-2 alert alert-danger alert-block">
+            <ul>
+                <li class="error"><i class="fa fa-fw fa-ban on fa-camera"></i> {{ Lang::get('messages.comment_disabled') }}</li>
+            </ul>
+        </div>
     @endif
 @else
     <div class="row">
@@ -49,3 +55,6 @@
             </div>
      </div>
 @endif
+
+
+
