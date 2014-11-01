@@ -3,12 +3,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <!-- www.intagme.com -->
-            <!-- SnapWidget -->
-            <script src="http://snapwidget.com/js/snapwidget.js"></script>
-            <!-- SnapWidget -->
-            <script src="http://snapwidget.com/js/snapwidget.js"></script>
-            <iframe src="http://snapwidget.com/in/?u=ZW1hbmFsb25hemk1MHxpbnwxMjV8OHwxfHxub3w1fGZhZGVJbnxvblN0YXJ0fHllc3x5ZXM=&ve=290914" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+            <iframe src="http://widget.websta.me/in/emanalonaizi50/?s=100&w=6&h=1&b=0&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:630px; height: 105px" ></iframe> <!-- websta - web.stagram.com -->
         </div>
         <div class="col-md-1"></div>
     </div>
@@ -16,11 +11,6 @@
 
 
 <div id="side-instagram" class="visible-xs">
-<!-- SnapWidget -->
-            <script src="http://snapwidget.com/js/snapwidget.js"></script>
-
-<!-- SnapWidget -->
-    <script src="http://snapwidget.com/js/snapwidget.js"></script>
-    <iframe src="http://snapwidget.com/in/?u=ZW1hbmFsb25hemk1MHxpbnwxMjV8M3wxfHxub3w1fGZhZGVJbnxvblN0YXJ0fHllc3x5ZXM=&ve=290914" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+    <iframe src="http://widget.websta.me/in/emanalonaizi50/?s=100&w=3&h=1&b=0&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:315px; height: 105px" ></iframe> <!-- websta - web.stagram.com -->
 
 </div>
