@@ -29,7 +29,7 @@
                 <div class="col-xs-6 col-md-3">
                         {{ Form::open(['action'=>['AdminPhotoController@destroy',$post->photos[$i]->id],'method'=>'DELETE', 'id'=>'form-'.$post->photos[$i]->id]) }}
                             {{ Form::hidden('image_id',$post->photos[$i]->id) }}
-                        <i class="remove fa fa-remove fa-lg" id="{{ $post->photos[$i]->id }}"></i>
+                               <i class="remove glyphicon glyphicon-remove" style="color: red;" id="{{ $post->photos[$i]->id }}"></i>
                          {{ Form::close() }}
                         {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
                 </div>

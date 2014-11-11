@@ -80,10 +80,13 @@ class AdminAccountController extends \BaseController {
             $status = Input::get('status');
             $activateUser = $this->user->find(Input::get('user_id'));
             $activateUser->active = Input::get('status');
-            if($activateUser->update()) {
+            if($activateUser->save()) {
+                if(Input::get('status') <= 0) {
+                return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.deactivated_success')]);
+                }
                 return Redirect::back()->with(['messages'=>'success','successMsg'=>Lang::get('messages.activated_success')]);
             }
-            return Redirect::back()->with(['messages'=>'error','errorMsg'=>Lang::get('messages.activated_success')]);
+            return Redirect::back()->with(['messages'=>'error','errorMsg'=>Lang::get('messages.activated_error')]);
 	}
 
 	/**

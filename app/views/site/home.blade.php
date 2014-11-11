@@ -5,7 +5,7 @@
 
     <div class="row">
         @include('site.partials.instagram')
-        @include('site.partials.latestnews')
+
         @include('site.partials.homeCategories')
     </div>
 @stop

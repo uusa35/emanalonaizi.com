@@ -2,9 +2,17 @@
 
 @section('content')
 <div class="row">
+
+    @if($category->category_description)
+    <div class="col-md-10 col-md-offset-1 ">
+        <div class="alert alert-info text-center text-success ">
+            <h4><i class="fa fa-fw fa-pencil"></i><strong> {{ $category->category_description }}</strong></h4>
+        </div>
+    </div>
+    @endif
 @foreach ($posts as $post)
 
-<div class="col-md-12" >
+<div class="col-md-12" style="overflow: hidden;" >
 
     <!-- Post Title -->
 <div class="col-md-2"></div>

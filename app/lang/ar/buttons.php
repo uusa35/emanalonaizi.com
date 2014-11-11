@@ -24,7 +24,8 @@ return array(
     'delete'            => 'حذف',
     'add_new_post'      => 'إضافة مقال جديد',
     'deactivate'        => 'إلغاء التفعيل',
-    'activate'          => 'تفعيل'
+    'activate'          => 'تفعيل',
+    'remove'            => 'حذف'
 
 
 );

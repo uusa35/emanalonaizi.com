@@ -22,7 +22,7 @@ class CategoryController extends \BaseController {
         $category = $this->category->find($categoryId);
         // eagger loading
         $posts = $category->posts()->orderBy('created_at','desc')->with('photos')->paginate(10);
-        return View::make('site.category.index',compact('posts'));
+        return View::make('site.category.index',compact('posts','category'));
 
 	}
 
