@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		// 1- to fetch last post added to the db
-        $post = $this->post->with('categories')->orderBy('created_at','desc')->take(1);
+        $post = $this->post->with('categories')->orderBy('created_at','desc')->take(1)->get();
         return View::make('site.home', compact('post'));
 
 	}
