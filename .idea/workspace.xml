@@ -23,15 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/master.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="47" selection-start="417" selection-end="417" vertical-scroll-proportion="-5.8846154" vertical-offset="119" max-vertical-offset="1377">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/site/category/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,7 +57,16 @@
       <file leaf-file-name="CategoryTableSeeder.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/database/seeds/CategoryTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="21" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.02556391" vertical-offset="561" max-vertical-offset="1343">
+            <state line="39" column="64" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.5368421" vertical-offset="306" max-vertical-offset="1343">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014_10_02_143852_create_category_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_10_02_143852_create_category_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="35" selection-start="340" selection-end="340" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="663">
               <folding />
             </state>
           </provider>
@@ -685,6 +685,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eman Al-Onaizi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -886,11 +908,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="23" selection-start="759" selection-end="759" vertical-scroll-proportion="-13.730769" vertical-offset="102" max-vertical-offset="629" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="28" selection-start="1350" selection-end="1358" vertical-scroll-proportion="-12.423077" vertical-offset="408" max-vertical-offset="918" />
@@ -1174,9 +1191,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_10_02_143852_create_category_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="35" selection-start="340" selection-end="340" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/CategoryTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="21" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.02556391" vertical-offset="561" max-vertical-offset="1343">
+        <state line="39" column="64" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.5368421" vertical-offset="306" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
