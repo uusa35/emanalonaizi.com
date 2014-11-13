@@ -12,6 +12,17 @@
             <h3>{{ $post->title }}</h3>
         </div>
         <div class="panel-body">
+
+            @if($category->category_description)
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 ">
+                    <div class="alert alert-info text-center text-success " >
+                        <h4 style="line-height: 161%;"><i class="fa fa-fw fa-pencil"></i><strong> {{ $category->category_description }}</strong></h4>
+                    </div>
+                </div>
+            </div>
+            @endif
+
             @if($post->id != 1)
             <!--Gallery Buttons -->
             <div class="row">

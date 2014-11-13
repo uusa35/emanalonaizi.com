@@ -101,8 +101,9 @@ class PostController extends \BaseController {
 
     public function getCommentPage($categoryId) {
         $post = $this->post->where('id','=','1')->first();
+        $category = Category::find($categoryId);
         $comments = $this->comment->where('post_id','=','1')->with('user')->paginate(8);
-        return View::make('site.posts.show',compact('post','comments'));
+        return View::make('site.posts.show',compact('post','comments','category'));
 
     }
 }

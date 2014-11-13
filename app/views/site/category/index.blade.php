@@ -5,8 +5,8 @@
 
     @if($category->category_description)
     <div class="col-md-10 col-md-offset-1 ">
-        <div class="alert alert-info text-center text-success " style="line-height: 150%;">
-            <h4><i class="fa fa-fw fa-pencil"></i><strong> {{ $category->category_description }}</strong></h4>
+        <div class="alert alert-info text-center text-success " >
+            <h4 style="line-height: 161%;"><i class="fa fa-fw fa-pencil"></i><strong> {{ $category->category_description }}</strong></h4>
         </div>
     </div>
     @endif
