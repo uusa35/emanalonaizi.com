@@ -12,8 +12,8 @@
                 <div class="row">
 
                     <div class="col-md-2 col-sm-1 col-xs-4">
-                        @if($post->categories->first()->id)
-                        <a href="#">{{ HTML::image('images/categories/'.$post->categories->first()->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
+                        @if($category_latest_id)
+                        <a href="#">{{ HTML::image('images/categories/'.$category_latest_id.'.png','image',array('class'=> 'img-responsive'))}}</a>
                         @else
                         <a href="#">{{ HTML::image('images/flower.png','image',array('class'=> 'img-responsive'))}}</a>
                         @endif
