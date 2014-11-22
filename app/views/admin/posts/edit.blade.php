@@ -15,8 +15,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-
-            @if(count($post->photos) < 1)
+            @if(count($photos->photos) == 0)
             <div class="col-md-8 text-center col-md-offset-2">
                 <div class="alert alert-danger" role="alert"><i class="fa fa-fw fa-ban on fa-camera"></i>{{ Lang::get('general.no_photos') }}</div>
             </div>
@@ -24,16 +23,15 @@
             @else
             <div class="col-md-12" id="links">
                 <!--return $post->comments[0]->body;-->
-
-                @for($i=0;$i < count($post->photos);$i++)
+                @foreach($photos->photos as $photo)
                 <div class="col-xs-6 col-md-3">
-                        {{ Form::open(['action'=>['AdminPhotoController@destroy',$post->photos[$i]->id],'method'=>'DELETE', 'id'=>'form-'.$post->photos[$i]->id]) }}
-                            {{ Form::hidden('image_id',$post->photos[$i]->id) }}
-                               <i class="remove glyphicon glyphicon-remove" style="color: red;" id="{{ $post->photos[$i]->id }}"></i>
+                        {{ Form::open(['action'=>['AdminPhotoController@destroy',$photo->id],'method'=>'DELETE', 'id'=>'form-'.$photo->id]) }}
+                            {{ Form::hidden('image_id',$photo->photo_id) }}
+                               <i class="remove glyphicon glyphicon-remove" style="color: red;" id="{{ $photo->id }}"></i>
                          {{ Form::close() }}
-                        {{ HTML::image('/uploads/thumbnail/'.$post->photos[$i]->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
+                        {{ HTML::image('/uploads/thumbnail/'.$photo->path,$post->title,array('class'=>'img-responsive thumbnail')) }}
                 </div>
-                @endfor
+                @endforeach
             </div>
             @endif
         </div>

@@ -1,19 +1,24 @@
+@if($post)
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 divid" style="">
         <!-- ./ post title -->
-
         <!-- Post Content -->
-
         <div class="panel panel-success">
             <div class="panel-heading">
                     {{ $post->title }}
             </div>
             <div class="panel-body">
                 <div class="row">
+
                     <div class="col-md-2 col-sm-1 col-xs-4">
-                        <a href="#">{{ HTML::image('images/categories/'.$post->categories[0]->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
+                        @if($post->categories->first()->id)
+                        <a href="#">{{ HTML::image('images/categories/'.$post->categories->first()->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
+                        @else
+                        <a href="#">{{ HTML::image('images/flower.png','image',array('class'=> 'img-responsive'))}}</a>
+                        @endif
                     </div>
+
 
                     <div class="col-md-10">
                         <p style="width: 98%;">
@@ -30,3 +35,4 @@
     <div class="col-md-1 hidden-sm"></div>
 
 </div>
+@endif
