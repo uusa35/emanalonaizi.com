@@ -58,7 +58,6 @@ class PostController extends \BaseController {
 		//
 		// this will depend on comments and photos :: relation ship to be made
         $post = $this->post->find($id);
-        $post = $post->load('photos');
         $comments = $this->comment->where('post_id','=',$id)->with('user')->paginate(5);
         return View::make('site.posts.show',compact('post','comments'));
 	}
