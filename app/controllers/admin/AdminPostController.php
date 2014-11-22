@@ -91,6 +91,7 @@ class AdminPostController extends \BaseController {
         $post = $this->post->find($id);
         // get all categories from the DB
         $categoriesList = $this->category->get();
+        $post->load('photos');
         // get the related category for the edited post
         $categorySelected = $post->categories()->first();
         // list all categories
