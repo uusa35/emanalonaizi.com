@@ -23,13 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="home.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="44" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="289">
-              <folding>
-                <marker date="1415724806541" expanded="true" signature="122:271" placeholder="..." />
-              </folding>
+            <state line="7" column="7" selection-start="175" selection-end="175" vertical-scroll-proportion="0.23333333" vertical-offset="0" max-vertical-offset="510">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPostController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AdminPostController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="60" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.5930736" vertical-offset="797" max-vertical-offset="2635">
+            <state line="63" column="60" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-3.7027028" vertical-offset="797" max-vertical-offset="2635">
               <folding />
             </state>
           </provider>
@@ -165,7 +163,6 @@
         <option value="$PROJECT_DIR$/app/controllers/admin/AdminAccountController.php" />
         <option value="$PROJECT_DIR$/app/lang/ar/buttons.php" />
         <option value="$PROJECT_DIR$/app/views/admin/posts/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/site/home.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/master.blade.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/views/site/category/index.blade.php" />
@@ -176,6 +173,7 @@
         <option value="$PROJECT_DIR$/app/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/CategoryTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/controllers/admin/AdminPostController.php" />
+        <option value="$PROJECT_DIR$/app/views/site/home.blade.php" />
       </list>
     </option>
   </component>
@@ -946,15 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="44" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="289">
-          <folding>
-            <marker date="1415724806541" expanded="true" signature="122:271" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="87" selection-start="775" selection-end="775" vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="629">
@@ -985,7 +974,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="60" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.5930736" vertical-offset="797" max-vertical-offset="2635">
+        <state line="63" column="60" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-3.7027028" vertical-offset="797" max-vertical-offset="2635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/site/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="175" selection-end="175" vertical-scroll-proportion="0.23333333" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
