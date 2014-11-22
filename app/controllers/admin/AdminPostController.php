@@ -58,12 +58,12 @@ class AdminPostController extends \BaseController {
             $createdPost = $this->post->orderBy('created_at','desc')->first();
             DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
             // plz go to app/events.php
-            if($images[0] != NULL) {
+            if(Input::file('image')) {
                 Event::fire('post.create',[$createdPost,$images]);
             }
-            return Redirect::home()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
         }
-        return Redirect::home()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
+        return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 	}
 
 	/**
@@ -91,7 +91,6 @@ class AdminPostController extends \BaseController {
         $post = $this->post->find($id);
         // get all categories from the DB
         $categoriesList = $this->category->get();
-        $post->load('photos');
         // get the related category for the edited post
         $categorySelected = $post->categories()->first();
         // list all categories
@@ -120,13 +119,13 @@ class AdminPostController extends \BaseController {
                $updatedPost = $this->post->find($id);
                 DB::table('category_post')->where('post_id','=',$id)->update(['category_id'=>Input::get('category')]);
                 // plz go to app/events.php
-                if($images[0] != NULL) {
+                if($images[0]) {
                     Event::fire('post.create',[$updatedPost,$images]);
                 }
            }
-            return Redirect::home()->with(['messages'=>'success','successMsg'=>'Post updated with Images Uploaded :)']);
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post updated with Images Uploaded :)']);
         }
-        return Redirect::home()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
+        return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 
 
 	}
@@ -143,7 +142,7 @@ class AdminPostController extends \BaseController {
 		//
         $deletedPost = $this->post->find(Input::get('post_id'));
         $deletedPost = $deletedPost->delete();
-        return Redirect::home()->with(['messages'=>'success','successMsg'=>'deleted']);
+        return Redirect::back()->with(['messages'=>'success','successMsg'=>'deleted']);
 
 
 	}
