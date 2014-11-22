@@ -51,17 +51,20 @@ class AdminPostController extends \BaseController {
         $validator = Validator::make(Input::all(),Post::$postRulesUpload);
         if($validator->passes()) {
             $images = Input::file('image');
-            $this->post->create([
+            $createdPost = $this->post->create([
                 'title'      => Input::get('title'),
                 'body'       => Input::get('body'),
             ]);
-            $createdPost = $this->post->orderBy('created_at','desc')->first();
+            /*$createdPost = $this->post->orderBy('created_at','desc')->first();*/
+            if ($createdPost) {
             DB::table('category_post')->insert(['category_id'=>Input::get('category'),'post_id'=> $createdPost->id]);
             // plz go to app/events.php
-            if($images[0] != NULL) {
-                Event::fire('post.create',[$createdPost,$images]);
-            }
+                if($images[0] != NULL) {
+                    Event::fire('post.create',[$createdPost,$images]);
+                }
             return Redirect::home()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
+            }
+            return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
         }
         return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 	}
