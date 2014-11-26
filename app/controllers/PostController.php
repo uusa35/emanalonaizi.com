@@ -101,6 +101,7 @@ class PostController extends \BaseController {
 		//
 	}
 
+	// this for Comment Page
     public function getCommentPage($categoryId) {
         $post = $this->post->where('id','=','1')->first();
         $category = Category::find($categoryId);
