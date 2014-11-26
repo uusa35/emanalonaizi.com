@@ -16,7 +16,9 @@
 Route::get('/', ['as'=>'home', 'uses'=>'HomeController@index']);
 Route::get('category/{categoryId}', 'CategoryController@index');
 Route::resource('post','PostController',['only'=>'show']);
-Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);
+
+/*this is the post_id for about us page - i had to make it like this because she asked for gallery
+ * Route::get('/aboutus', ['as'=>'aboutus', 'uses'=>'AboutUsController@index']);*/
 Route::get('/contactus', ['as'=>'contactus', 'uses'=>'ContactUsController@index']);
 Route::post('/contactus/email', ['as'=>'contactus-email', 'uses'=>'ContactUsController@contact']);
 Route::get('category/comment/{id}', ['as'=>'category-comment','uses'=>'PostController@getCommentPage']);

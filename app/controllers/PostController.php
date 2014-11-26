@@ -58,7 +58,10 @@ class PostController extends \BaseController {
 		//
 		// this will depend on comments and photos :: relation ship to be made
         $post = $this->post->find($id);
+		// this event is to increate the counter for each view for the targeted post
+
         $comments = $this->comment->where('post_id','=',$id)->with('user')->paginate(5);
+		Event::fire('post.newHitCounter',['id'=>$id]);
         return View::make('site.posts.show',compact('post','comments'));
 	}
 
@@ -105,4 +108,11 @@ class PostController extends \BaseController {
         return View::make('site.posts.show',compact('post','comments','category'));
 
     }
+
+	public function newHitCounter($id) {
+		$post = $this->post->where('id','=', $id)->first();
+		$currentCounter = $post->counter;
+		$newView = $currentCounter + 1;
+		$post->update(['counter' => $newView]);
+	}
 }

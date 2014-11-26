@@ -9,7 +9,24 @@
 @section('content')
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h3>{{ $post->title }}</h3>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+                    <h3>{{ $post->title }}</h3>
+                </div>
+                {{--this is the post_id for about us page - i had to make it like this because she asked for gallery--}}
+                @if(!$post->id === 28)
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 pull-left hidden-xs">
+                        </br>
+                        <div class="btn btn-default btn-sm" data-placement="top" title="" >
+                            <i class="fa fa-lg fa-eye"></i> {{ $post->counter }}
+                        </div>
+                        <div class="btn btn-success text-muted btn-sm" title="" >
+                            <i class="fa fa-lg fa-clock-o"></i> {{ substr($post->created_at,0, 10) }}
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
         <div class="panel-body">
             @if(Request::is('category/*'))
@@ -97,9 +114,10 @@
             </div>
             <hr>
            @endif
-
-            @include('site.comments.show')
-
+            {{--this is the post_id for about us page - i had to make it like this because she asked for gallery--}}
+            @if(!$post->id === 28)
+                @include('site.comments.show')
+            @endif
         </div>
     </div>
 @stop

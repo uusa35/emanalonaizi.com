@@ -62,7 +62,7 @@ class AdminPostController extends \BaseController {
                 if($images[0] != NULL) {
                     Event::fire('post.create',[$createdPost,$images]);
                 }
-            return Redirect::home()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post Created with Images Uploaded :)']);
             }
             return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
         }
@@ -127,7 +127,7 @@ class AdminPostController extends \BaseController {
                     Event::fire('post.create',[$updatedPost,$images]);
                 }
            }
-            return Redirect::home()->with(['messages'=>'success','successMsg'=>'Post updated with Images Uploaded :)']);
+            return Redirect::back()->with(['messages'=>'success','successMsg'=>'Post updated with Images Uploaded :)']);
         }
         return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> Lang::get('messages.upload_error')]);
 
