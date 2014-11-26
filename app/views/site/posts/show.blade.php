@@ -15,7 +15,7 @@
                     <h3>{{ $post->title }}</h3>
                 </div>
                 {{--this is the post_id for about us page - i had to make it like this because she asked for gallery--}}
-                @if(!$post->id === 28)
+                @if($post->id !== 28)
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 pull-left hidden-xs">
                         </br>
                         <div class="btn btn-default btn-sm" data-placement="top" title="" >
