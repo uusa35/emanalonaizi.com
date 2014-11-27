@@ -64,6 +64,7 @@
         </div>
     <div class="col-md-2"></div>
 </div></div> <!-- end of panel and panel body -->
+</div>
 @endforeach
 {{ $posts->links() }}
 </div>
