@@ -115,8 +115,9 @@
             <hr>
            @endif
             {{--this is the post_id for about us page - i had to make it like this because she asked for gallery--}}
-            @if(!$post->id === 28)
-                @include('site.comments.show')
+            @if($post->id === '28')
+            @else
+            @include('site.comments.show')
             @endif
         </div>
     </div>
