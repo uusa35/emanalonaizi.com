@@ -20,8 +20,8 @@
                     </div>
 
 
-                    <div class="col-md-10">
-                        <p style="width: 98%;">
+                    <div class="col-md-10" style="overflow: hidden !important;">
+                        <p style="width: 98%; overflow: hidden !important;">
                             {{ Str::limit($post->body, $limit = 250) }}
                         </p>
                     </div>
