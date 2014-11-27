@@ -10,11 +10,10 @@
         </div>
     </div>
     @endif
-@foreach ($posts as $post)
+
 </div>
+@foreach ($posts as $post)
 <div class="row">
-
-
         <!-- Post Title -->
         <div class="col-md-2"></div>
         <div class="col-md-8" style="padding: 20px; border:1px solid white ; margin-bottom: 20px; background-color: #ececec !important;overflow: hidden !important;">
@@ -22,6 +21,7 @@
         <!-- ./ post title -->
 
         <!-- Post Content -->
+
             <div class="row">
                 <div class="col-md-3">
                     @if(isset($post->photos[0]))
@@ -59,9 +59,8 @@
         <!-- ./ post footer -->
             </div>
         </div>
-
-        <div class="col-md-2"></div>
-    @endforeach
+    <div class="col-md-2"></div>
  </div>
+@endforeach
 {{ $posts->links() }}
 @stop
