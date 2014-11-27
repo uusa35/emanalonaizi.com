@@ -14,5 +14,7 @@
     Event::listen('post.create','AdminPhotoController@create');
     // updating images within the post
     Event::listen('post.update','AdminPhotoController@update');
+    // delete images records only from DB when post is deleted
+    Event::listen('photo.delete','AdminPhotoController@postPhotoDelete');
     // counter :: only PageViewers to add 1 for each request for a certain post
     Event::listen('post.newHitCounter', 'PostController@newHitCounter');

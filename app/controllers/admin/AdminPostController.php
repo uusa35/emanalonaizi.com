@@ -145,6 +145,7 @@ class AdminPostController extends \BaseController {
 	{
 		//
         $deletedPost = $this->post->find(Input::get('post_id'));
+        Event::fire('photo.delete',['post_id'=> $id]);
         $deletedPost = $deletedPost->delete();
         return Redirect::home()->with(['messages'=>'success','successMsg'=>'deleted']);
 

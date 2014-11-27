@@ -116,4 +116,14 @@ class AdminPhotoController extends \BaseController {
 
 	}
 
+    public function postPhotoDelete($post_id) {
+
+        $deletedPhoto = $this->photo->where('post_id' , '=', $post_id);
+        if($deletedPhoto) {
+            $deletedPhoto->delete();
+        }
+        return Redirect::back()->with(['message'=>'error','errorMsg'=>'Photo has not been deleted !!!']);
+    }
+
+
 }
