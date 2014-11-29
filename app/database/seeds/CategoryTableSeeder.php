@@ -12,7 +12,7 @@ class CategoryTableSeeder extends Seeder {
         $categories_list = [
             'صباحات',
             'شكرا',
-            'حيادية',
+            'ميزان',
             'مقالات',
             'مقالات مختارة',
             'العالم ثقافات',
