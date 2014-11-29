@@ -28,6 +28,7 @@ class AdminPhotoController extends \BaseController {
 	{
         foreach($images as $image)  {
         $filename = $image->getClientOriginalName();
+        $filename = Str::random(5).''.$filename;
         $realpath = $image->getRealPath();
         $validator = Validator::make([$image],Photo::$uploadRules);
             if($validator->fails()) {
