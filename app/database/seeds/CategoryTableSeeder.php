@@ -68,8 +68,8 @@ class CategoryTableSeeder extends Seeder {
 
 		for($i=0;$i<=count($categories_list)-1; $i++) {
 			Category::create([
-                'category_description' => $categories_description[10],
-                'name' => $categories_list[10]
+                'category_description' => $categories_description[$i],
+                'name' => $categories_list[$i]
 			]);
 
 		}

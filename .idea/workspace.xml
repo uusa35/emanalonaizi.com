@@ -58,8 +58,8 @@
       <file leaf-file-name="CategoryTableSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/database/seeds/CategoryTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7229917" vertical-offset="810" max-vertical-offset="1584">
-              <caret line="74" column="9" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.59833795" vertical-offset="810" max-vertical-offset="1584">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1078,8 +1078,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/CategoryTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7229917" vertical-offset="810" max-vertical-offset="1584">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.59833795" vertical-offset="810" max-vertical-offset="1584">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
           <folding />
         </state>
       </provider>
