@@ -19,7 +19,8 @@ class CategoryTableSeeder extends Seeder {
             'إلتقط الجمال',
             'جدد إيمانك',
             'نحو وبلاغة',
-            'هنا ملعبك'
+            'هنا ملعبك',
+            'إصدارات'
             ];
 
         $categories_description = [
@@ -59,14 +60,16 @@ class CategoryTableSeeder extends Seeder {
 هل لديك سؤال ؟؟... هل تشعر بالحيرة ؟؟...اكتب
 
 هنا مساحة تركتها لك ...( هنا ملعبك )...',
+            // different editions
+            '',
 
 
         ];
 
 		for($i=0;$i<=count($categories_list)-1; $i++) {
 			Category::create([
-                'category_description' => $categories_description[$i],
-                'name' => $categories_list[$i]
+                'category_description' => $categories_description[10],
+                'name' => $categories_list[10]
 			]);
 
 		}
