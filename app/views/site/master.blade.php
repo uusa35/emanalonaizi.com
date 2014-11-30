@@ -4,6 +4,23 @@
     <meta charset="utf-8">
     <title>{{ Lang::get('general.blogTitle') }}</title>
     <meta name="keywords" content="kuwait,eman,blog,alonaizi,qeight,q8,إيمان,ايمان,العنيزي,إيمان العنيزي,كويت,الكويت,اللغة العربية,emanalonaizi.com,emanalonaizi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Eman Alonaizi">
+    <link rel="canonical" href="http://emanalonaizi.com">
+    <meta property="og:site_name" content="Eman Al Onaizi Blog">
+    <meta property="og:title" content="Eman Al Onaizi Blog">
+    <meta property="og:latitude" content="29.3760648">
+    <meta property="og:longitude" content="47.9818854">
+    <meta property="og:url" content="http://emanalonaizi.com">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Eman Al-Onaizi Blog">
+    <meta property="og:image" content="http://static.squarespace.com/static/540dc430e316635e68026c84/t/542c654de4b08e65b7778a7a/1412195662159/?format=1000w">
+    <meta itemprop="name" content="Eman Al-Onaizi">
+    <meta itemprop="url" content="http://www.emanalonaizi.com">
+    <meta itemprop="description" content="Eman Al-Onaizi Blog">
+    <meta itemprop="thumbnailUrl" content="http://emanalonaizi.com/images/logo.png">
+    <meta itemprop="image" content="http://emanalonaizi.com/images/logo.png">
+    <meta name="description" content="Eman Al-Onaizi Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('style')
 </head>
