@@ -12,9 +12,9 @@
     <meta property="og:latitude" content="29.3760648">
     <meta property="og:longitude" content="47.9818854">
     <meta property="og:url" content="http://emanalonaizi.com">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="Blog">
     <meta property="og:description" content="Eman Al-Onaizi Blog">
-    <meta property="og:image" content="http://static.squarespace.com/static/540dc430e316635e68026c84/t/542c654de4b08e65b7778a7a/1412195662159/?format=1000w">
+    <meta property="og:image" content="http://emanalonaizi.com/images/logo.png">
     <meta itemprop="name" content="Eman Al-Onaizi">
     <meta itemprop="url" content="http://www.emanalonaizi.com">
     <meta itemprop="description" content="Eman Al-Onaizi Blog">
