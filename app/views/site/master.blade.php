@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{ Lang::get('general.blogTitle') }}</title>
-
+    <meta name="keywords" content="kuwait,eman,blog,alonaizi,qeight,q8,إيمان,ايمان,العنيزي,إيمان العنيزي,كويت,الكويت,اللغة العربية,emanalonaizi.com,emanalonaizi" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('style')
 </head>
