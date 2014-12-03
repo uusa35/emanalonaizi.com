@@ -21,6 +21,8 @@ return array(
 
     'articles'          => 'المقالات',
 
+    'categories'        => 'التصنيفات',
+
 
 
 );

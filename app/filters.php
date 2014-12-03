@@ -20,7 +20,7 @@ App::before(function($request)
         	// remember categories for 24 hours
     		// cache::remember --> if (statement) cache does not have categories .. then it will load otherwise it will procceed
         if(!Cache::has('categories')) {
-        Cache::put('categories', Category::all(), 1440);
+        Cache::put('categories', Category::all(), 0);
         }
         // will make the cache here for categories
         $categories = Cache::get('categories');

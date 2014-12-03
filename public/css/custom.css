@@ -12,6 +12,28 @@ a:hover{
     color:#5bb75b;
 }
 
+.categoryBtn, .categoryBtn:active , .categoryBtn:focus , .categoryBtn:after{
+    background-image: url('../images/flower.png');
+    background-size: 100%;
+    background-position: right;
+    background-repeat: no-repeat;
+    min-height:115px;
+    background-color: transparent;
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+}
+.categoryBtn:hover {
+    background-color: transparent;
+    width:105%;
+    height: 105%;
+}
+.categoryBtn a {
+    color: white;
+    font-size: 70%;
+    text-decoration: none;
+}
+
 #footer {
     color: #247e36;
     border-top: 1px solid #247e36;

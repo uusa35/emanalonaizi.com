@@ -5,7 +5,13 @@
             @if($category->id === '10')
             <a href="{{ action('PostController@getCommentPage', $category->id) }}">{{ HTML::image('images/categories/'.$category->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
             @else
-            <a href="{{ action('CategoryController@index', $category->id) }}">{{ HTML::image('images/categories/'.$category->id.'.png','image',array('class'=> 'img-responsive'))}}</a>
+                <button type="button" class="btn btn-primary btn-lg btn-block categoryBtn" >
+
+
+                    <a class="text-center" href="{{ action('CategoryController@index', $category->id) }}"> {{ $category->name }} </a>
+
+
+                </button>
             @endif
         </div>
         </br>

@@ -40,7 +40,8 @@ return array(
         'address'       => 'العنوان',
         'all_comments'  => 'التعليقات',
         'category'      => 'اختيار التصنيف',
-        'photos'            => 'الصور'
+        'photos'        => 'الصور',
+        'description'   => 'المحتوى/الشرح'
     ],
 
 

@@ -74,7 +74,7 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
         // index for the dashboard area -- go directly to post index -- this will fetch all posts in the db
         Route::get('account/',['as'=>'account','uses'=> 'AdminPostController@index']);
         // index for each category - will fetch all posts related to one category
-        Route::get('account/categories/{id}',['as'=>'account-categories','uses'=> 'AdminCategoryController@index']);
+        /*Route::get('account/categories/{id}',['as'=>'account-categories','uses'=> 'AdminCategoryController@index']);*/
         // will fetch all users in the db
         Route::get('account/users',['as'=>'account-users','uses'=>'AdminAccountController@index']);
         // will fetch all comments in the db
@@ -87,6 +87,10 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
         Route::get('account/post/create',['as'=>'account-post-create','uses'=>'AdminPostController@create']);
         // update existing post
         Route::get('account/post/edit/{id}',['as'=>'account-post-edit','uses'=>'AdminPostController@edit']);
+        // to fetch all categories from the db
+        Route::get('account/categories',['as'=>'account-categories','uses'=>'AdminCategoryController@index']);
+        // to edit the category
+        Route::get('account/categories/edit/{id}',['as'=>'account-categories-edit','uses'=>'AdminCategoryController@edit']);
 
         Route::group(['before'=>'csrf'], function () {
             // store + edit + delete
@@ -109,6 +113,8 @@ Route::group(['before'=>'admin','prefix'=>'admin'], function () {
             Route::post('account/user/status/{id}','AdminAccountController@update');
             // update a post
             Route::post('account/post/update/{id}','AdminPostController@update');
+            // update a category
+            Route::post('account/category/update/{id}','AdminCategoryController@update');
         });
 
 

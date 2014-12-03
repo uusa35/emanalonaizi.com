@@ -6,39 +6,45 @@
     <div class="panel-heading">
         <h1><small>{{ Lang::get('general.admin.all_posts') }}</small></h1>
     </div>
-
     <!-- Table -->
-    <div class="col-md-12">
-        <table class="table table-bordered table-hovered">
-            {{ dd($posts[0]->toArray())}}
-            <th>id</th>
-            <th>title</th>
-            <th>body</th>
-            <tbody>
-            @foreach($posts as $post)
-            <tr>
-                <td>{{ $post->id}}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->images}}</td>
-                <td>{{ $post->availability }}</td>
-                <td>{{ Form::open(array('url'=> array('admin/posts/toggle_availability', $post->availability))) }}
-                    {{ Form::select('availability', array('1'=>'In Stock','0'=>'Out of Stock'),$post->availability, array('class'=>'form-control')) }}
-                    {{ Form::submit('submit', array('class'=>'btn btn-default')) }}
-                    {{ Form::close() }}
-                </td>
-                <td>
-                    {{ Form::open(array('url'=>array('admin/posts/destroy', $post->id), 'method'=>'DELETE')) }}
-                    {{ Form::submit('Delete', array('class'=>'btn btn-danger' ))}}
-                    {{ Form::close() }}
-                </td>
-            </tr>
-            @endforeach
-            @else
-            there is no posts
-            @endif
-            </tbody>
-        </table>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hovered">
+                <th>id</th>
+                <th>{{ Lang::get('general.admin.title') }}</th>
+                <th>{{ Lang::get('general.admin.description') }}</th>
+                <th>{{ Lang::get('buttons.edit') }}</th>
+                <tbody>
+                @foreach($categories as $category)
+                    <tr >
+                        <td>{{ $category->id}}</td>
+                        <td>{{ link_to_action('CategoryController@index',$category->name,$category->id) }}</td>
+                        <td>{{ $category->category_description }}</td>
+                        <td class="text-center"><a  class="edit btn btn-info btn-sm" href="{{ URL::action('AdminCategoryController@edit',$category->id) }}">{{ Lang::get('buttons.edit') }}</a></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+@stop
+
+@section('javascript')
+    @parent
+    {{ HTML::script('js/jquery.confirm.js') }}
+    <script type="text/javascript">
+
+        $(".edit").confirm({
+            text: "are you sure ?",
+            title: "Confirmation",
+            confirm: function(button) {
+                var post_id = button.attr('post');
+                window.location.href = button.attr('href');
+            },
+            cancel: function(button) {
+                return false;
+            }
+        });
+    </script>
 @stop

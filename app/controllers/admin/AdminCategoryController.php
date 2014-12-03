@@ -17,8 +17,8 @@ class AdminCategoryController extends \BaseController {
 		//
         /*$category = $this->category->all();*/
         // eagger loading
-        $allPosts = $this->category->posts()->with('photos')->paginate(2);
-        return View::make('admin.category.index',['posts' => $allPosts]);
+        $categories = $this->category->all();
+        return View::make('admin.category.index',['categories' => $categories]);
 	}
 
 	/**
@@ -65,6 +65,8 @@ class AdminCategoryController extends \BaseController {
 	public function edit($id)
 	{
 		//
+		$category = $this->category->find($id);
+		return View::make('admin.category.edit',['category'=>$category]);
 	}
 
 	/**
@@ -77,6 +79,15 @@ class AdminCategoryController extends \BaseController {
 	public function update($id)
 	{
 		//
+		$validator = Validator::make(Input::all(),Category::$categoryRulesUpdate);
+		if($validator->passes()) {
+			$categoryUpdate = $this->category->where('id','=',$id)->update(['name'=>Input::get('name'),'category_description'=>Input::get('category_description')]);
+			if($categoryUpdate) {
+				return Redirect::back()->with(['messages'=>'success','successMsg'=>'Category updated successfully']);
+			}
+			return Redirect::back()->with(['messages'=>'error', 'errorMsg'=> 'error occured .. category not updated ']);;
+		}
+		return Redirect::back()->withErrors($validator)->with(['messages'=>'error', 'errorMsg'=> 'please enter the info required properly']);;
 	}
 
 	/**

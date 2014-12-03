@@ -16,8 +16,10 @@
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('admin/account/users') ? 'active' : '' }}"><a href="{{ action('AdminAccountController@index')}}">{{ Lang::get('nav.users') }}</a></li>
                 <li class="{{ Request::is('admin/account/comments') ? 'active' : '' }}"><a href="{{ action('AdminCommentController@index')}}">{{ Lang::get('nav.all_comments') }}</a></li>
+                <li class="{{ Request::is('admin/account/categories') ? 'active' : '' }}"><a href="{{ URL::to('admin/account/categories')}}">{{ Lang::get('nav.categories') }}</a></li>
                 <li class="{{ Request::is('admin/account/contactus') ? 'active' : '' }}"><a href="{{ action('AdminContactUsController@edit')}}">{{ Lang::get('nav.contactus') }}</a></li>
                 <li class="{{ Request::is('admin/account/post/edit/28') ? 'active' : '' }}"><a href="{{ URL::to('admin/account/post/edit/28')}}">{{ Lang::get('nav.aboutus') }}</a></li>
+
 
             </ul>
             <!--<form class="navbar-form navbar-left" role="search">
