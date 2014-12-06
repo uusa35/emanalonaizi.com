@@ -13,7 +13,7 @@
 
 </div>
 
-@foreach ($posts as $post)
+<?php foreach ($posts as $post) { ?>
 
         <!-- Post Title -->
         <div class="row">
@@ -52,9 +52,9 @@
                             </div>
                         </div>
                     </div></div><!-- end coloum-m-9-->
-                
+
         </div>
-@endforeach
+<?php } ?>
 <div class="row">
 {{ $posts->links() }}
 </div>
