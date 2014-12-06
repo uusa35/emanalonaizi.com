@@ -1,4 +1,5 @@
 <!-- Post Title -->
+<div class="container">
 <div class="panel">
     <div class="panel-body">
         <div class="col-md-2"></div>
@@ -43,3 +44,4 @@
     <div class="col-md-2"></div>
     </div>
 </div> <!-- end of panel and panel body -->
+</div> <!-- end of container --> 
