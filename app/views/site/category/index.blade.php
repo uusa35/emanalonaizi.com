@@ -51,7 +51,6 @@
                          <a class="btn-sm btn-mini btn-info pull-left" href="{{action('PostController@show',$post->id) }}">{{Lang::get('buttons.read_more')}}</a>
                         </div>
                     </div>
-                </div>
             <!-- ./ post content -->
             <!-- Post Footer -->
         <!-- ./ post footer -->
