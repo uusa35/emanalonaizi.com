@@ -13,11 +13,12 @@
 
 </div>
 <div class="row">
+    <div class="panel">
+        <div class="panel-body">
 @foreach ($posts as $post)
 
         <!-- Post Title -->
-        <div class="panel">
-            <div class="panel-body">
+
                 <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8" style="padding: 20px; border:1px solid white ; margin-bottom: 20px; background-color: #ececec !important;overflow: hidden !important;">
@@ -56,8 +57,8 @@
                     </div></div><!-- end coloum-m-9-->
                 <div class="col-md-2"></div>
         </div> <!-- end row -->
-    </div></div> <!-- end of panel and panel body -->
 @endforeach
+        </div></div> <!-- end of panel and panel body -->
 {{ $posts->links() }}
 </div>
 @stop
