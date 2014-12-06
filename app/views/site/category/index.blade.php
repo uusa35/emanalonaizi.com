@@ -53,8 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- end coloum-m-9-->
+                    </div></div><!-- end coloum-m-9-->
                 <div class="col-md-2"></div>
         </div> <!-- end row -->
     </div></div> <!-- end of panel and panel body -->
