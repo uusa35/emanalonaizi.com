@@ -18,11 +18,18 @@ class AdminPostController extends \BaseController {
 	 * @return Response
 	 */
 
-	public function index()
+	public function index($id='')
 	{
 		//
-        $allPosts = $this->post->orderBy('created_at','DESC')->paginate(12);
-        return View::make('admin.posts.index',['posts'=>$allPosts]);
+        $categories = $this->category->where('id','!=','10')->get();
+        $categories = $categories->lists('name', 'id');
+        if (!$id) {
+            $allPosts = $this->post->orderBy('created_at','DESC')->paginate(12);
+        }
+        else {
+            $allPosts = $this->category->find($id)->posts()->orderBy('created_at','desc')->paginate(5);
+        }
+        return View::make('admin.posts.index',['posts'=>$allPosts,'categories'=>$categories]);
 	}
 
 	/**

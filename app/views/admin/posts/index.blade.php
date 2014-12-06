@@ -1,15 +1,22 @@
 @extends('admin.layouts.home')
 @section('content')
 
-<div class="panel panel-default">
+<div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
     <!-- Default panel contents -->
     <div class="panel-heading">
         <div class="row">
-            <div class="col-md-8"><h4>{{ Lang::get('general.admin.all_posts') }}</h4></div>
-            <div class="col-md-4">{{ HTML::link(URL::action('AdminPostController@create'), Lang::get('buttons.add_new_post') , ['class'=>'btn btn-info pull-left']) }}</div>
+            <div class="col-md-4"><h4>{{ Lang::get('general.admin.all_posts') }}</h4></div>
+            <div class="col-md-8">{{ HTML::link(URL::action('AdminPostController@create'), Lang::get('buttons.add_new_post') , ['class'=>'btn btn-info pull-left']) }}</div>
         </div>
     </div>
     <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                {{ Form::select('category', $categories, NULL,['class'=>'form-control input-lg category-selection']) }}
+                <br />
+            </div>
+        </div>
+
     <!-- Table -->
     <div class="col-md-12">
         <table class="table table-bordered table-hovered table-striped table-responsive">
@@ -71,6 +78,10 @@
         cancel: function(button) {
             return false;
         }
+    });
+    $('.category-selection').on('change',function () {
+        var catVal = $(this).val();
+        window.location.href = '/admin/account/'+catVal;
     });
 </script>
 @stop
