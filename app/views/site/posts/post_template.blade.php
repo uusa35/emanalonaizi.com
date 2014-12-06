@@ -2,7 +2,7 @@
 <!-- Post Title -->
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8" style="padding: 20px; border:1px solid white ; margin-bottom: 20px; background-color: #ececec !important;">
+    <div class="col-md-10" style="padding: 20px; border:1px solid white ; margin-bottom: 20px; background-color: #ececec !important;">
 
         <div class="col-md-3">
             @if(isset($post->photos[0]))
@@ -38,7 +38,7 @@
 
         </div>
     </div>
-    <div class="col-md-2"></div>
+    
 </div>
 {{--
 
