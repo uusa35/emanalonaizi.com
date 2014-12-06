@@ -12,7 +12,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                {{ Form::select('category', $categories, NULL,['class'=>'form-control input-lg category-selection']) }}
+                {{ Form::select('category', $categories, Request::segment(3),['class'=>'form-control input-lg category-selection']) }}
                 <br />
             </div>
         </div>
