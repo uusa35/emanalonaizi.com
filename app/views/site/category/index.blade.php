@@ -14,7 +14,9 @@
 </div>
 <div class="row">
 @foreach ($posts as $post)
+    <div class="container">
     @include('site.posts.post_template')
+    </div>
 @endforeach
 {{ $posts->links() }}
 </div>
