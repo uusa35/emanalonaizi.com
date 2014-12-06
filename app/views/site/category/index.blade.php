@@ -12,14 +12,14 @@
     @endif
 
 </div>
-<div class="row">
+
 @foreach ($posts as $post)
 
     @include('site.posts.post_template')
 
 @endforeach
 {{ $posts->links() }}
-</div>
+
 @stop
 
 

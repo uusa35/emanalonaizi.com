@@ -1,4 +1,5 @@
 <!-- Post Title -->
+<div class="row">
 <div class="col-md-12" style="padding: 20px; border:1px solid white ; margin-bottom: 20px; background-color: #ececec !important;">
 
     <div class="col-md-3">
@@ -36,6 +37,7 @@
     </div>
 
 
+</div>
 </div>
 {{--
 
