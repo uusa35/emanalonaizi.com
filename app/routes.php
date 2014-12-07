@@ -72,7 +72,7 @@ Route::group(['after'=> 'auth'], function () {
 Route::group(['before'=>'admin','prefix'=>'admin'], function () {
 
         // index for the dashboard area -- go directly to post index -- this will fetch all posts in the db
-        Route::get('account/{id?}',['as'=>'account','uses'=> 'AdminPostController@index']);
+        Route::get('account/posts/{id?}',['as'=>'account-posts','uses'=> 'AdminPostController@index']);
         // index for each category - will fetch all posts related to one category
         /*Route::get('account/categories/{id}',['as'=>'account-categories','uses'=> 'AdminCategoryController@index']);*/
         // will fetch all users in the db

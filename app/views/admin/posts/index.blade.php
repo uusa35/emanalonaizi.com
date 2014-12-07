@@ -12,7 +12,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                {{ Form::select('category', $categories, Request::segment(3),['class'=>'form-control input-lg category-selection']) }}
+                {{ Form::select('category', $categories, Request::segment(4),['class'=>'form-control input-lg category-selection']) }}
                 <br />
             </div>
         </div>
@@ -81,7 +81,7 @@
     });
     $('.category-selection').on('change',function () {
         var catVal = $(this).val();
-        window.location.href = '/admin/account/'+catVal;
+        window.location.href = '/admin/account/posts/'+catVal;
     });
 </script>
 @stop

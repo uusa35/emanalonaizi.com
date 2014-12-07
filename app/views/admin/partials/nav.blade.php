@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="{{ Request::is('admin/account') ? 'color:#06A000;' : '' }}" href="{{ URL::route('account') }}">{{ Lang::get('general.blogTitlear') }}</a>
+            <a class="navbar-brand" style="{{ Request::is('admin/account') ? 'color:#06A000;' : '' }}" href="{{ URL::route('account-posts') }}">{{ Lang::get('general.blogTitlear') }}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
